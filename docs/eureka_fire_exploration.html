@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,15 +65,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,14 +111,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
 <script src="site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="site_libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<script src="site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 
 
 </head>
 
-<body class="fullcontent">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
@@ -197,8 +199,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"RBR value"</span>,</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">labFormat =</span> <span class="fu">labelFormat</span>(<span class="at">transform =</span> <span class="cf">function</span>(x) <span class="fu">sort</span>(x, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-1d188424394a42512a94" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1d188424394a42512a94">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.07286616001824,-116.3343692259575],[34.05826191903461,-116.3208883101105]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #20068F 2.75070692657006%, #5D01A6 16.598668468411%, #920FA3 30.4466300102519%, #BD3786 44.2945915520928%, #DD5E66 58.1425530939338%, #F58A47 71.9905146357747%, #FEBD2A 85.8384761776156%, #F0F723 99.6864377194566%, #F0F921 "],"labels":["0.5","0.4","0.3","0.2","0.1","0.0","-0.1","-0.2"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0.02750706926570058,"p_n":0.9968643771945657},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05826191903461,34.07286616001824],"lng":[-116.3343692259575,-116.3208883101105]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-fe38e88a373a4ad6976a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fe38e88a373a4ad6976a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.07286616001824,-116.3343692259575],[34.05826191903461,-116.3208883101105]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #20068F 2.75070692657006%, #5D01A6 16.598668468411%, #920FA3 30.4466300102519%, #BD3786 44.2945915520928%, #DD5E66 58.1425530939338%, #F58A47 71.9905146357747%, #FEBD2A 85.8384761776156%, #F0F723 99.6864377194566%, #F0F921 "],"labels":["0.5","0.4","0.3","0.2","0.1","0.0","-0.1","-0.2"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0.02750706926570058,"p_n":0.9968643771945657},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05826191903461,34.07286616001824],"lng":[-116.3343692259575,-116.3208883101105]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -321,8 +323,8 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 76%">
-<col style="width: 10%">
+<col style="width: 77%">
+<col style="width: 9%">
 <col style="width: 12%">
 </colgroup>
 <thead>
@@ -335,43 +337,43 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Total Burned Area</td>
-<td style="text-align: right;">87.1560000</td>
+<td style="text-align: right;">87.156000</td>
 <td style="text-align: right;">100.0000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">48.4475490</td>
-<td style="text-align: right;">55.5871644</td>
+<td style="text-align: right;">48.448527</td>
+<td style="text-align: right;">55.5882865</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">19.3109766</td>
-<td style="text-align: right;">22.1567954</td>
+<td style="text-align: right;">19.308857</td>
+<td style="text-align: right;">22.1543628</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
-<td style="text-align: right;">9.5698538</td>
-<td style="text-align: right;">10.9801434</td>
+<td style="text-align: right;">9.576218</td>
+<td style="text-align: right;">10.9874453</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">5.1160438</td>
-<td style="text-align: right;">5.8699846</td>
+<td style="text-align: right;">5.115082</td>
+<td style="text-align: right;">5.8688815</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: right;">3.0957694</td>
-<td style="text-align: right;">3.5519865</td>
+<td style="text-align: right;">3.090180</td>
+<td style="text-align: right;">3.5455736</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: right;">1.3421753</td>
-<td style="text-align: right;">1.5399689</td>
+<td style="text-align: right;">1.343491</td>
+<td style="text-align: right;">1.5414788</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.2736322</td>
-<td style="text-align: right;">0.3139568</td>
+<td style="text-align: right;">0.273645</td>
+<td style="text-align: right;">0.3139715</td>
 </tr>
 </tbody>
 </table>
@@ -534,66 +536,66 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">0.0006178</td>
+<td style="text-align: right;">0.0006180</td>
 <td style="text-align: right;">0.4402448</td>
-<td style="text-align: right;">0.1876000</td>
-<td style="text-align: right;">0.1880521</td>
-<td style="text-align: right;">0.0980251</td>
-<td style="text-align: right;">1794.35364</td>
+<td style="text-align: right;">0.1875809</td>
+<td style="text-align: right;">0.1880229</td>
+<td style="text-align: right;">0.0980271</td>
+<td style="text-align: right;">1794.38989</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">0.0006927</td>
-<td style="text-align: right;">0.4703166</td>
-<td style="text-align: right;">0.2723719</td>
-<td style="text-align: right;">0.2855063</td>
-<td style="text-align: right;">0.0918550</td>
-<td style="text-align: right;">715.22137</td>
+<td style="text-align: right;">0.0006930</td>
+<td style="text-align: right;">0.4703220</td>
+<td style="text-align: right;">0.2723623</td>
+<td style="text-align: right;">0.2855058</td>
+<td style="text-align: right;">0.0918548</td>
+<td style="text-align: right;">715.14282</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
-<td style="text-align: right;">0.0010206</td>
-<td style="text-align: right;">0.4248829</td>
-<td style="text-align: right;">0.1628162</td>
-<td style="text-align: right;">0.1470451</td>
-<td style="text-align: right;">0.0935087</td>
-<td style="text-align: right;">354.43903</td>
+<td style="text-align: right;">0.0010205</td>
+<td style="text-align: right;">0.4248822</td>
+<td style="text-align: right;">0.1628788</td>
+<td style="text-align: right;">0.1470648</td>
+<td style="text-align: right;">0.0935248</td>
+<td style="text-align: right;">354.67474</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.0026619</td>
-<td style="text-align: right;">0.4724639</td>
-<td style="text-align: right;">0.2085815</td>
-<td style="text-align: right;">0.2073311</td>
-<td style="text-align: right;">0.0872869</td>
-<td style="text-align: right;">189.48311</td>
+<td style="text-align: right;">0.0026277</td>
+<td style="text-align: right;">0.4724708</td>
+<td style="text-align: right;">0.2086451</td>
+<td style="text-align: right;">0.2073452</td>
+<td style="text-align: right;">0.0873264</td>
+<td style="text-align: right;">189.44749</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: right;">0.0012685</td>
-<td style="text-align: right;">0.2954386</td>
-<td style="text-align: right;">0.1017317</td>
-<td style="text-align: right;">0.0921144</td>
-<td style="text-align: right;">0.0693485</td>
-<td style="text-align: right;">114.65813</td>
+<td style="text-align: right;">0.0012658</td>
+<td style="text-align: right;">0.2954396</td>
+<td style="text-align: right;">0.1017169</td>
+<td style="text-align: right;">0.0921209</td>
+<td style="text-align: right;">0.0693350</td>
+<td style="text-align: right;">114.45112</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: right;">0.0026019</td>
-<td style="text-align: right;">0.4074306</td>
-<td style="text-align: right;">0.1493467</td>
-<td style="text-align: right;">0.1252532</td>
-<td style="text-align: right;">0.1119501</td>
-<td style="text-align: right;">49.71020</td>
+<td style="text-align: right;">0.0026020</td>
+<td style="text-align: right;">0.4074394</td>
+<td style="text-align: right;">0.1493329</td>
+<td style="text-align: right;">0.1252776</td>
+<td style="text-align: right;">0.1118264</td>
+<td style="text-align: right;">49.75893</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.0150545</td>
-<td style="text-align: right;">0.4356584</td>
-<td style="text-align: right;">0.2343643</td>
-<td style="text-align: right;">0.2361572</td>
-<td style="text-align: right;">0.0997474</td>
-<td style="text-align: right;">10.13452</td>
+<td style="text-align: right;">0.0150700</td>
+<td style="text-align: right;">0.4356722</td>
+<td style="text-align: right;">0.2350517</td>
+<td style="text-align: right;">0.2361865</td>
+<td style="text-align: right;">0.0999810</td>
+<td style="text-align: right;">10.13500</td>
 </tr>
 </tbody>
 </table>
@@ -770,29 +772,29 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tr class="odd">
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0006178</td>
-<td style="text-align: right;">0.4724639</td>
-<td style="text-align: right;">0.1930639</td>
-<td style="text-align: right;">0.1028691</td>
-<td style="text-align: right;">63.612771 [m^2]</td>
+<td style="text-align: right;">0.0006180</td>
+<td style="text-align: right;">0.4724708</td>
+<td style="text-align: right;">0.1930726</td>
+<td style="text-align: right;">0.1028686</td>
+<td style="text-align: right;">63.628019 [m^2]</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">COVINGTON</td>
 <td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0012685</td>
-<td style="text-align: right;">0.2601025</td>
-<td style="text-align: right;">0.0969125</td>
-<td style="text-align: right;">0.0643561</td>
-<td style="text-align: right;">2.529986 [m^2]</td>
+<td style="text-align: right;">0.0012658</td>
+<td style="text-align: right;">0.2601161</td>
+<td style="text-align: right;">0.0968649</td>
+<td style="text-align: right;">0.0643272</td>
+<td style="text-align: right;">2.525263 [m^2]</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0006927</td>
-<td style="text-align: right;">0.4672158</td>
-<td style="text-align: right;">0.2392190</td>
-<td style="text-align: right;">0.0964592</td>
-<td style="text-align: right;">21.013242 [m^2]</td>
+<td style="text-align: right;">0.0006930</td>
+<td style="text-align: right;">0.4672234</td>
+<td style="text-align: right;">0.2392004</td>
+<td style="text-align: right;">0.0964742</td>
+<td style="text-align: right;">21.002718 [m^2]</td>
 </tr>
 </tbody>
 </table>
@@ -807,11 +809,11 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Sum of historical burned areas (ha):"</span>, burned_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sum of historical burned areas (ha): 66.14276 </code></pre>
+<pre><code>Sum of historical burned areas (ha): 66.15328 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Unburned area (ha):"</span>, unburned_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Unburned area (ha): 21.01324 </code></pre>
+<pre><code>Unburned area (ha): 21.00272 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_calculated_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -901,131 +903,131 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0006178</td>
+<td style="text-align: right;">0.0006180</td>
 <td style="text-align: right;">0.4402448</td>
-<td style="text-align: right;">0.1708716</td>
-<td style="text-align: right;">0.0969081</td>
-<td style="text-align: right;">35.6587526</td>
+<td style="text-align: right;">0.1708613</td>
+<td style="text-align: right;">0.0968984</td>
+<td style="text-align: right;">35.6644384</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
 <td style="text-align: left;">COVINGTON</td>
 <td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0041944</td>
-<td style="text-align: right;">0.2381883</td>
-<td style="text-align: right;">0.1056019</td>
-<td style="text-align: right;">0.0555091</td>
-<td style="text-align: right;">0.0596381</td>
+<td style="text-align: right;">0.0041728</td>
+<td style="text-align: right;">0.2381983</td>
+<td style="text-align: right;">0.1048983</td>
+<td style="text-align: right;">0.0550464</td>
+<td style="text-align: right;">0.0595843</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0041544</td>
-<td style="text-align: right;">0.4136359</td>
-<td style="text-align: right;">0.2348462</td>
-<td style="text-align: right;">0.0848635</td>
-<td style="text-align: right;">12.7291584</td>
+<td style="text-align: right;">0.0041596</td>
+<td style="text-align: right;">0.4136409</td>
+<td style="text-align: right;">0.2348300</td>
+<td style="text-align: right;">0.0849044</td>
+<td style="text-align: right;">12.7245042</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0137789</td>
-<td style="text-align: right;">0.4703166</td>
-<td style="text-align: right;">0.2665175</td>
-<td style="text-align: right;">0.0905737</td>
-<td style="text-align: right;">13.9284866</td>
+<td style="text-align: right;">0.0137813</td>
+<td style="text-align: right;">0.4703220</td>
+<td style="text-align: right;">0.2665095</td>
+<td style="text-align: right;">0.0905748</td>
+<td style="text-align: right;">13.9294365</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0006927</td>
-<td style="text-align: right;">0.4672158</td>
-<td style="text-align: right;">0.2875216</td>
-<td style="text-align: right;">0.0934025</td>
-<td style="text-align: right;">5.3824901</td>
+<td style="text-align: right;">0.0006930</td>
+<td style="text-align: right;">0.4672234</td>
+<td style="text-align: right;">0.2875174</td>
+<td style="text-align: right;">0.0934000</td>
+<td style="text-align: right;">5.3794200</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0010206</td>
-<td style="text-align: right;">0.4248829</td>
-<td style="text-align: right;">0.1628162</td>
-<td style="text-align: right;">0.0935087</td>
-<td style="text-align: right;">9.5698538</td>
+<td style="text-align: right;">0.0010205</td>
+<td style="text-align: right;">0.4248822</td>
+<td style="text-align: right;">0.1628788</td>
+<td style="text-align: right;">0.0935248</td>
+<td style="text-align: right;">9.5762179</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0062844</td>
-<td style="text-align: right;">0.4724639</td>
-<td style="text-align: right;">0.2111886</td>
-<td style="text-align: right;">0.0886525</td>
-<td style="text-align: right;">3.9139999</td>
+<td style="text-align: right;">0.0062851</td>
+<td style="text-align: right;">0.4724708</td>
+<td style="text-align: right;">0.2113134</td>
+<td style="text-align: right;">0.0886993</td>
+<td style="text-align: right;">3.9158686</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0026619</td>
-<td style="text-align: right;">0.3348899</td>
-<td style="text-align: right;">0.2000925</td>
-<td style="text-align: right;">0.0821128</td>
-<td style="text-align: right;">1.2020438</td>
+<td style="text-align: right;">0.0026277</td>
+<td style="text-align: right;">0.3348970</td>
+<td style="text-align: right;">0.1999320</td>
+<td style="text-align: right;">0.0820829</td>
+<td style="text-align: right;">1.1992137</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
 <td style="text-align: left;">COVINGTON</td>
 <td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0012685</td>
-<td style="text-align: right;">0.2601025</td>
-<td style="text-align: right;">0.0967027</td>
-<td style="text-align: right;">0.0645402</td>
-<td style="text-align: right;">2.4703482</td>
+<td style="text-align: right;">0.0012658</td>
+<td style="text-align: right;">0.2601161</td>
+<td style="text-align: right;">0.0966708</td>
+<td style="text-align: right;">0.0645226</td>
+<td style="text-align: right;">2.4656783</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0045456</td>
-<td style="text-align: right;">0.2954386</td>
-<td style="text-align: right;">0.1215957</td>
-<td style="text-align: right;">0.0828105</td>
-<td style="text-align: right;">0.6254212</td>
+<td style="text-align: right;">0.0045418</td>
+<td style="text-align: right;">0.2954396</td>
+<td style="text-align: right;">0.1216404</td>
+<td style="text-align: right;">0.0827842</td>
+<td style="text-align: right;">0.6245019</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0026019</td>
-<td style="text-align: right;">0.3116651</td>
-<td style="text-align: right;">0.1015738</td>
-<td style="text-align: right;">0.0719240</td>
-<td style="text-align: right;">0.2680464</td>
+<td style="text-align: right;">0.0026020</td>
+<td style="text-align: right;">0.3116636</td>
+<td style="text-align: right;">0.1015797</td>
+<td style="text-align: right;">0.0718604</td>
+<td style="text-align: right;">0.2684126</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0041544</td>
-<td style="text-align: right;">0.4074306</td>
-<td style="text-align: right;">0.1612683</td>
-<td style="text-align: right;">0.1168666</td>
-<td style="text-align: right;">1.0741289</td>
+<td style="text-align: right;">0.0041596</td>
+<td style="text-align: right;">0.4074394</td>
+<td style="text-align: right;">0.1612553</td>
+<td style="text-align: right;">0.1167327</td>
+<td style="text-align: right;">1.0750787</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
 <td style="text-align: left;">WHISPERING PINES</td>
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0150545</td>
-<td style="text-align: right;">0.4356584</td>
-<td style="text-align: right;">0.2343643</td>
-<td style="text-align: right;">0.0997474</td>
-<td style="text-align: right;">0.2736322</td>
+<td style="text-align: right;">0.0150700</td>
+<td style="text-align: right;">0.4356722</td>
+<td style="text-align: right;">0.2350517</td>
+<td style="text-align: right;">0.0999810</td>
+<td style="text-align: right;">0.2736450</td>
 </tr>
 </tbody>
 </table>
@@ -1041,11 +1043,11 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Vegetation × burned area (ha):"</span>, veg_hist_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Vegetation × burned area (ha): 66.14276 </code></pre>
+<pre><code>Vegetation × burned area (ha): 66.15328 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Vegetation × unburned area (ha):"</span>, veg_unburned_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Vegetation × unburned area (ha): 21.01324 </code></pre>
+<pre><code>Vegetation × unburned area (ha): 21.00272 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_veg_hist_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1106,7 +1108,7 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coverage_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-0.0000014 0.6994879 1.0000000 0.8108515 1.0000000 1.0000000 </code></pre>
+3.000e-08 7.023e-01 1.000e+00 8.106e-01 1.000e+00 1.000e+00 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total effective pixels based on coverage fractions</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>total_effective_pixels <span class="ot">&lt;-</span> <span class="fu">sum</span>(all_pixels<span class="sc">$</span>coverage_fraction)</span>
@@ -1142,7 +1144,7 @@ Pixel Count Analysis:</code></pre>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage), </span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"("</span>, <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage, <span class="dv">2</span>), <span class="st">"%)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Difference in effective pixels: 8.295865e-08 ( 0 %)</code></pre>
+<pre><code>- Difference in effective pixels: 5.613324e-07 ( 0 %)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the difference is within tolerance (adjusted from 5% to 1% for stricter validation)</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage <span class="sc">&lt;</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1200,239 +1202,242 @@ Pixel Count Analysis:</code></pre>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1440,185 +1445,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 
