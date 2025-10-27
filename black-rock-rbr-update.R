@@ -14,6 +14,12 @@ ext(rbr) <- e
 
 rbr <- flip(rbr, direction = "vertical")
 
+# mask to the boundary polygon so outside area is NA
+rbr <- mask(rbr, vect(boundary))
+
+# set zeros and negative values (non-burn) to NA
+rbr[rbr <= 0] <- NA
+
 # plot
 plot(rbr[[1]],
      col = hcl.colors(64, "viridis"),
@@ -26,5 +32,6 @@ writeRaster(
   rbr,
   "inputs/black-rock-severity-rbr-georef.tif",
   overwrite = TRUE,
-  filetype = "GTiff"
+  filetype = "GTiff",
+  NAflag = -9999
 )
