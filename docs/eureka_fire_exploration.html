@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-11">
+<meta name="dcterms.date" content="2025-10-27">
 
-<title>Eureka Fire Exploration</title>
+<title>Black Rock Fire Exploration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Eureka Fire Exploration</h1>
+<h1 class="title">Black Rock Fire Exploration</h1>
 </div>
 
 
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 11, 2025</p>
+      <p class="date">October 27, 2025</p>
     </div>
   </div>
   
@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read fire severity (raster)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rbr_rast <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"inputs/refined_rbr.tif"</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rbr_rast <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"inputs/black-rock-severity-rbr-georef.tif"</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="interactive-map-of-fire-location" class="level2">
@@ -199,8 +199,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"RBR value"</span>,</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">labFormat =</span> <span class="fu">labelFormat</span>(<span class="at">transform =</span> <span class="cf">function</span>(x) <span class="fu">sort</span>(x, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-fe38e88a373a4ad6976a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-fe38e88a373a4ad6976a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.07286616001824,-116.3343692259575],[34.05826191903461,-116.3208883101105]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #20068F 2.75070692657006%, #5D01A6 16.598668468411%, #920FA3 30.4466300102519%, #BD3786 44.2945915520928%, #DD5E66 58.1425530939338%, #F58A47 71.9905146357747%, #FEBD2A 85.8384761776156%, #F0F723 99.6864377194566%, #F0F921 "],"labels":["0.5","0.4","0.3","0.2","0.1","0.0","-0.1","-0.2"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0.02750706926570058,"p_n":0.9968643771945657},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05826191903461,34.07286616001824],"lng":[-116.3343692259575,-116.3208883101105]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-4bf4be3cb67758256c81" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4bf4be3cb67758256c81">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.06669099999999,-116.396937],[34.05833099999999,-116.388598]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #0D0887 0%, #5102A3 13.6786702213992%, #8707A6 27.3573404427985%, #B42D8D 41.0360106641977%, #D6556D 54.714680885597%, #EF7E50 68.3933511069962%, #FDAE32 82.0720213283954%, #F6E626 95.7506915497947%, #F0F921 "],"labels":["1,400,000,000","1,200,000,000","1,000,000,000","800,000,000","600,000,000","400,000,000","200,000,000","0"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0,"p_n":0.9575069154979465},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05833099999999,34.06669099999999],"lng":[-116.396937,-116.388598]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -266,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing layer `severity_to_fire_perimeter' to data source 
   `outputs/fire_perimeter/severity_to_fire_perimeter.shp' using driver `ESRI Shapefile'
-Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
+Writing 1 features with 0 fields and geometry type Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#convert reprojected raster to dataframe</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rbr_to_vec_crs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">rasterToPoints</span>(rbr_to_vec_crs))</span>
@@ -301,31 +301,36 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <section id="clip-vegetation-data-to-fire-boundary-and-ummarize-vegetation-types-within-fire-boundary" class="level2">
 <h2 class="anchored" data-anchor-id="clip-vegetation-data-to-fire-boundary-and-ummarize-vegetation-types-within-fire-boundary">Clip vegetation data to fire boundary and ummarize vegetation types within fire boundary</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate area per vegetation type polygon</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>clipped_veg <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(veg_data, fire_boundary) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_ha =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.) <span class="sc">/</span> <span class="dv">10000</span>))  <span class="co"># m² → ha</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize hectares by vegetation type</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>veg_summary <span class="ot">&lt;-</span> clipped_veg <span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_geometry</span>(<span class="cn">NULL</span>) <span class="sc">%&gt;%</span>          <span class="co"># drop geometry for speed</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(MapUnit_Name) <span class="sc">%&gt;%</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">veg_ha =</span> <span class="fu">sum</span>(area_ha, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_of_total =</span> <span class="dv">100</span> <span class="sc">*</span> veg_ha <span class="sc">/</span> <span class="fu">sum</span>(veg_ha)) <span class="sc">%&gt;%</span><span class="co"># total area can be calculated in pipe</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">MapUnit_Name =</span> <span class="st">"Total Burned Area"</span>, </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">veg_ha =</span> <span class="fu">sum</span>(clipped_veg<span class="sc">$</span>area_ha), <span class="at">pct_of_total =</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_of_total))</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># write out</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(veg_summary, <span class="st">"outputs/veg_burned_summary.csv"</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># show table</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(veg_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure CRS metadata match before intersection (sf requires exact equality)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">identical</span>(<span class="fu">st_crs</span>(veg_data), <span class="fu">st_crs</span>(fire_boundary))) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_crs</span>(fire_boundary) <span class="ot">&lt;-</span> <span class="fu">st_crs</span>(veg_data)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate area per vegetation type polygon</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>clipped_veg <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(veg_data, fire_boundary) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_ha =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.) <span class="sc">/</span> <span class="dv">10000</span>))  <span class="co"># m² → ha</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize hectares by vegetation type</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>veg_summary <span class="ot">&lt;-</span> clipped_veg <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_geometry</span>(<span class="cn">NULL</span>) <span class="sc">%&gt;%</span>          <span class="co"># drop geometry for speed</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(MapUnit_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">veg_ha =</span> <span class="fu">sum</span>(area_ha, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_of_total =</span> <span class="dv">100</span> <span class="sc">*</span> veg_ha <span class="sc">/</span> <span class="fu">sum</span>(veg_ha)) <span class="sc">%&gt;%</span><span class="co"># total area can be calculated in pipe</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">MapUnit_Name =</span> <span class="st">"Total Burned Area"</span>, </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">veg_ha =</span> <span class="fu">sum</span>(clipped_veg<span class="sc">$</span>area_ha), <span class="at">pct_of_total =</span> <span class="dv">100</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pct_of_total))</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># write out</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(veg_summary, <span class="st">"outputs/veg_burned_summary.csv"</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co"># show table</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(veg_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 77%">
-<col style="width: 9%">
-<col style="width: 12%">
+<col style="width: 74%">
+<col style="width: 11%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -337,43 +342,43 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Total Burned Area</td>
-<td style="text-align: right;">87.156000</td>
-<td style="text-align: right;">100.0000000</td>
+<td style="text-align: right;">32.7650400</td>
+<td style="text-align: right;">100.000000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">48.448527</td>
-<td style="text-align: right;">55.5882865</td>
+<td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
+<td style="text-align: right;">11.5445454</td>
+<td style="text-align: right;">35.234339</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">19.308857</td>
-<td style="text-align: right;">22.1543628</td>
+<td style="text-align: right;">9.2585279</td>
+<td style="text-align: right;">28.257337</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
-<td style="text-align: right;">9.576218</td>
-<td style="text-align: right;">10.9874453</td>
+<td style="text-align: left;">California Juniper / Muller Oak - Blackbush Woodland Association</td>
+<td style="text-align: right;">5.4866104</td>
+<td style="text-align: right;">16.745319</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">5.115082</td>
-<td style="text-align: right;">5.8688815</td>
+<td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
+<td style="text-align: right;">3.2313060</td>
+<td style="text-align: right;">9.862054</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: right;">3.090180</td>
-<td style="text-align: right;">3.5455736</td>
+<td style="text-align: left;">Catclaw Acacia - Desert Almond Shrubland Association</td>
+<td style="text-align: right;">1.4747313</td>
+<td style="text-align: right;">4.500929</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: right;">1.343491</td>
-<td style="text-align: right;">1.5414788</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.273645</td>
-<td style="text-align: right;">0.3139715</td>
+<td style="text-align: right;">0.9781393</td>
+<td style="text-align: right;">2.985314</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Catclaw Acacia - (Sweetbush - Desert Lavender) Shrubland Association</td>
+<td style="text-align: right;">0.7911799</td>
+<td style="text-align: right;">2.414708</td>
 </tr>
 </tbody>
 </table>
@@ -386,13 +391,13 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fire_boundary_area <span class="ot">&lt;-</span> <span class="fu">st_area</span>(fire_boundary) <span class="sc">%&gt;%</span> units<span class="sc">::</span><span class="fu">set_units</span>(<span class="st">"ha"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, fire_boundary_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 87.156 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After clipping vegetation</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>total_veg_area <span class="ot">&lt;-</span> <span class="fu">sum</span>(clipped_veg<span class="sc">$</span>area_ha)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Sum of vegetation areas within fire (ha):"</span>, total_veg_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sum of vegetation areas within fire (ha): 87.156 </code></pre>
+<pre><code>Sum of vegetation areas within fire (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assert that these are approximately equal (within small tolerance for computational differences)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(<span class="fu">as.numeric</span>(fire_boundary_area) <span class="sc">-</span> total_veg_area) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -514,11 +519,11 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 56%">
+<col style="width: 53%">
 <col style="width: 7%">
+<col style="width: 8%">
 <col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
+<col style="width: 8%">
 <col style="width: 7%">
 <col style="width: 7%">
 </colgroup>
@@ -536,66 +541,39 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">0.0006180</td>
-<td style="text-align: right;">0.4402448</td>
-<td style="text-align: right;">0.1875809</td>
-<td style="text-align: right;">0.1880229</td>
-<td style="text-align: right;">0.0980271</td>
-<td style="text-align: right;">1794.38989</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1227024059</td>
+<td style="text-align: right;">562679232</td>
+<td style="text-align: right;">664263258</td>
+<td style="text-align: right;">388288320</td>
+<td style="text-align: right;">121.50051</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">0.0006930</td>
-<td style="text-align: right;">0.4703220</td>
-<td style="text-align: right;">0.2723623</td>
-<td style="text-align: right;">0.2855058</td>
-<td style="text-align: right;">0.0918548</td>
-<td style="text-align: right;">715.14282</td>
+<td style="text-align: right;">-618429.3</td>
+<td style="text-align: right;">1440397289</td>
+<td style="text-align: right;">694124800</td>
+<td style="text-align: right;">718841171</td>
+<td style="text-align: right;">270976896</td>
+<td style="text-align: right;">348.13040</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
-<td style="text-align: right;">0.0010205</td>
-<td style="text-align: right;">0.4248822</td>
-<td style="text-align: right;">0.1628788</td>
-<td style="text-align: right;">0.1470648</td>
-<td style="text-align: right;">0.0935248</td>
-<td style="text-align: right;">354.67474</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.0026277</td>
-<td style="text-align: right;">0.4724708</td>
-<td style="text-align: right;">0.2086451</td>
-<td style="text-align: right;">0.2073452</td>
-<td style="text-align: right;">0.0873264</td>
-<td style="text-align: right;">189.44749</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: right;">0.0012658</td>
-<td style="text-align: right;">0.2954396</td>
-<td style="text-align: right;">0.1017169</td>
-<td style="text-align: right;">0.0921209</td>
-<td style="text-align: right;">0.0693350</td>
-<td style="text-align: right;">114.45112</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1194551736</td>
+<td style="text-align: right;">607052032</td>
+<td style="text-align: right;">697326753</td>
+<td style="text-align: right;">377328960</td>
+<td style="text-align: right;">434.08707</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: right;">0.0026020</td>
-<td style="text-align: right;">0.4074394</td>
-<td style="text-align: right;">0.1493329</td>
-<td style="text-align: right;">0.1252776</td>
-<td style="text-align: right;">0.1118264</td>
-<td style="text-align: right;">49.75893</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.0150700</td>
-<td style="text-align: right;">0.4356722</td>
-<td style="text-align: right;">0.2350517</td>
-<td style="text-align: right;">0.2361865</td>
-<td style="text-align: right;">0.0999810</td>
-<td style="text-align: right;">10.13500</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">741030643</td>
+<td style="text-align: right;">156567168</td>
+<td style="text-align: right;">35380933</td>
+<td style="text-align: right;">218441296</td>
+<td style="text-align: right;">36.77906</td>
 </tr>
 </tbody>
 </table>
@@ -752,10 +730,10 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <col style="width: 24%">
 <col style="width: 7%">
 <col style="width: 12%">
+<col style="width: 13%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 19%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -770,31 +748,13 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0006180</td>
-<td style="text-align: right;">0.4724708</td>
-<td style="text-align: right;">0.1930726</td>
-<td style="text-align: right;">0.1028686</td>
-<td style="text-align: right;">63.628019 [m^2]</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">COVINGTON</td>
-<td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0012658</td>
-<td style="text-align: right;">0.2601161</td>
-<td style="text-align: right;">0.0968649</td>
-<td style="text-align: right;">0.0643272</td>
-<td style="text-align: right;">2.525263 [m^2]</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0006930</td>
-<td style="text-align: right;">0.4672234</td>
-<td style="text-align: right;">0.2392004</td>
-<td style="text-align: right;">0.0964742</td>
-<td style="text-align: right;">21.002718 [m^2]</td>
+<td style="text-align: right;">-618429.3</td>
+<td style="text-align: right;">1440397289</td>
+<td style="text-align: right;">554613376</td>
+<td style="text-align: right;">362224992</td>
+<td style="text-align: right;">32.76504 [m^2]</td>
 </tr>
 </tbody>
 </table>
@@ -809,19 +769,19 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Sum of historical burned areas (ha):"</span>, burned_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sum of historical burned areas (ha): 66.15328 </code></pre>
+<pre><code>Sum of historical burned areas (ha): 0 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Unburned area (ha):"</span>, unburned_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Unburned area (ha): 21.00272 </code></pre>
+<pre><code>Unburned area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_calculated_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total calculated area (ha): 87.156 </code></pre>
+<pre><code>Total calculated area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, <span class="fu">as.numeric</span>(fire_boundary_area), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 87.156 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check these are approximately equal</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_calculated_area <span class="sc">-</span> <span class="fu">as.numeric</span>(fire_boundary_area)) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,186 +808,131 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co"># build the “previously unburned” pieces</span></span>
 <span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>burned_union  <span class="ot">&lt;-</span> <span class="fu">st_union</span>(burned_overlap)</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>veg_unburned  <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(merged_units_veg, burned_union) <span class="sc">%&gt;%</span></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">st_is_empty</span>(.))</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="co"># compute stats on unburned (still sf)</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>veg_unburned_stats <span class="ot">&lt;-</span> veg_unburned <span class="sc">%&gt;%</span></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">min_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"min"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">max_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"max"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">mean_RBR  =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"mean"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"stdev"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">area_ha =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.)) <span class="sc">/</span> <span class="dv">10000</span>, </span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="st">"Previously Unburned"</span>,<span class="at">YEAR_ =</span> <span class="dv">0</span>L)</span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="co">#  bind burned + unburned</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>full_veg_history <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(veg_hist_stats, veg_unburned_stats) <span class="sc">%&gt;%</span></span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MapUnit_Name =</span> <span class="fu">factor</span>(MapUnit_Name, <span class="at">levels =</span> ordered_veg, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="fu">factor</span>(FIRE_NAME, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"WHISPERING PINES"</span>,<span class="st">"COVINGTON"</span>,<span class="st">"Previously Unburned"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(MapUnit_Name, FIRE_NAME)<span class="sc">%&gt;%</span></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_geometry</span>(<span class="cn">NULL</span>)</span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Write</span></span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(full_veg_history, <span class="st">"outputs/severity_veg_firehist.csv"</span>)</span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="co">#show</span></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>  full_veg_history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># make geometries valid and perform difference on sfc, then rebuild sf to avoid tibble size issues</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>mu_valid <span class="ot">&lt;-</span> <span class="fu">st_make_valid</span>(merged_units_veg)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>burned_union_valid <span class="ot">&lt;-</span> <span class="fu">st_make_valid</span>(burned_union)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>geom_diff <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(<span class="fu">st_geometry</span>(mu_valid), burned_union_valid)</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>veg_unburned <span class="ot">&lt;-</span> <span class="fu">st_sf</span>(<span class="fu">st_drop_geometry</span>(mu_valid), <span class="at">geometry =</span> geom_diff, <span class="at">crs =</span> <span class="fu">st_crs</span>(mu_valid)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">st_is_empty</span>(geometry))</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="co"># compute stats on unburned (still sf)</span></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>veg_unburned_stats <span class="ot">&lt;-</span> veg_unburned <span class="sc">%&gt;%</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">min_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"min"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">max_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"max"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">mean_RBR  =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"mean"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd_RBR =</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, ., <span class="st">"stdev"</span>,<span class="at">progress =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">area_ha =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.)) <span class="sc">/</span> <span class="dv">10000</span>, </span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="st">"Previously Unburned"</span>,<span class="at">YEAR_ =</span> <span class="dv">0</span>L)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="co">#  bind burned + unburned</span></span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>full_veg_history <span class="ot">&lt;-</span> <span class="fu">rbind</span>(veg_hist_stats, veg_unburned_stats) <span class="sc">%&gt;%</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MapUnit_Name =</span> <span class="fu">factor</span>(MapUnit_Name, <span class="at">levels =</span> ordered_veg, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="fu">factor</span>(FIRE_NAME, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"WHISPERING PINES"</span>,<span class="st">"COVINGTON"</span>,<span class="st">"Previously Unburned"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(MapUnit_Name, FIRE_NAME)<span class="sc">%&gt;%</span></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_geometry</span>(<span class="cn">NULL</span>)</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Write</span></span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(full_veg_history, <span class="st">"outputs/severity_veg_firehist.csv"</span>)</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a><span class="co">#show</span></span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>  full_veg_history)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 12%">
-<col style="width: 3%">
+<col style="width: 47%">
 <col style="width: 6%">
-<col style="width: 6%">
+<col style="width: 7%">
 <col style="width: 6%">
 <col style="width: 6%">
 <col style="width: 7%">
+<col style="width: 13%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">MapUnit_Name</th>
-<th style="text-align: left;">FIRE_NAME</th>
-<th style="text-align: right;">YEAR_</th>
 <th style="text-align: right;">min_RBR</th>
 <th style="text-align: right;">max_RBR</th>
 <th style="text-align: right;">mean_RBR</th>
 <th style="text-align: right;">sd_RBR</th>
 <th style="text-align: right;">area_ha</th>
+<th style="text-align: left;">FIRE_NAME</th>
+<th style="text-align: right;">YEAR_</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0006180</td>
-<td style="text-align: right;">0.4402448</td>
-<td style="text-align: right;">0.1708613</td>
-<td style="text-align: right;">0.0968984</td>
-<td style="text-align: right;">35.6644384</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: left;">COVINGTON</td>
-<td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0041728</td>
-<td style="text-align: right;">0.2381983</td>
-<td style="text-align: right;">0.1048983</td>
-<td style="text-align: right;">0.0550464</td>
-<td style="text-align: right;">0.0595843</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1227024059</td>
+<td style="text-align: right;">562679232</td>
+<td style="text-align: right;">388288320</td>
+<td style="text-align: right;">3.2313060</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0041596</td>
-<td style="text-align: right;">0.4136409</td>
-<td style="text-align: right;">0.2348300</td>
-<td style="text-align: right;">0.0849044</td>
-<td style="text-align: right;">12.7245042</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0137813</td>
-<td style="text-align: right;">0.4703220</td>
-<td style="text-align: right;">0.2665095</td>
-<td style="text-align: right;">0.0905748</td>
-<td style="text-align: right;">13.9294365</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
+<td style="text-align: right;">-618429.3</td>
+<td style="text-align: right;">1440397289</td>
+<td style="text-align: right;">694124800</td>
+<td style="text-align: right;">270976896</td>
+<td style="text-align: right;">9.2585279</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0006930</td>
-<td style="text-align: right;">0.4672234</td>
-<td style="text-align: right;">0.2875174</td>
-<td style="text-align: right;">0.0934000</td>
-<td style="text-align: right;">5.3794200</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0010205</td>
-<td style="text-align: right;">0.4248822</td>
-<td style="text-align: right;">0.1628788</td>
-<td style="text-align: right;">0.0935248</td>
-<td style="text-align: right;">9.5762179</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0062851</td>
-<td style="text-align: right;">0.4724708</td>
-<td style="text-align: right;">0.2113134</td>
-<td style="text-align: right;">0.0886993</td>
-<td style="text-align: right;">3.9158686</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1194551736</td>
+<td style="text-align: right;">607052032</td>
+<td style="text-align: right;">377328960</td>
+<td style="text-align: right;">11.5445454</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0026277</td>
-<td style="text-align: right;">0.3348970</td>
-<td style="text-align: right;">0.1999320</td>
-<td style="text-align: right;">0.0820829</td>
-<td style="text-align: right;">1.1992137</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: left;">COVINGTON</td>
-<td style="text-align: right;">1995</td>
-<td style="text-align: right;">0.0012658</td>
-<td style="text-align: right;">0.2601161</td>
-<td style="text-align: right;">0.0966708</td>
-<td style="text-align: right;">0.0645226</td>
-<td style="text-align: right;">2.4656783</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands</td>
-<td style="text-align: left;">Previously Unburned</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0045418</td>
-<td style="text-align: right;">0.2954396</td>
-<td style="text-align: right;">0.1216404</td>
-<td style="text-align: right;">0.0827842</td>
-<td style="text-align: right;">0.6245019</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0026020</td>
-<td style="text-align: right;">0.3116636</td>
-<td style="text-align: right;">0.1015797</td>
-<td style="text-align: right;">0.0718604</td>
-<td style="text-align: right;">0.2684126</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mojave Yucca - Blackbush Shrubland Association</td>
-<td style="text-align: left;">Previously Unburned</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0041596</td>
-<td style="text-align: right;">0.4074394</td>
-<td style="text-align: right;">0.1612553</td>
-<td style="text-align: right;">0.1167327</td>
-<td style="text-align: right;">1.0750787</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: left;">WHISPERING PINES</td>
-<td style="text-align: right;">2006</td>
-<td style="text-align: right;">0.0150700</td>
-<td style="text-align: right;">0.4356722</td>
-<td style="text-align: right;">0.2350517</td>
-<td style="text-align: right;">0.0999810</td>
-<td style="text-align: right;">0.2736450</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">741030643</td>
+<td style="text-align: right;">156567168</td>
+<td style="text-align: right;">218441296</td>
+<td style="text-align: right;">0.9781393</td>
+<td style="text-align: left;">Previously Unburned</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">971191245</td>
+<td style="text-align: right;">380661248</td>
+<td style="text-align: right;">330692576</td>
+<td style="text-align: right;">5.4866104</td>
+<td style="text-align: left;">Previously Unburned</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">4784856.7</td>
+<td style="text-align: right;">820388867</td>
+<td style="text-align: right;">266628640</td>
+<td style="text-align: right;">229805648</td>
+<td style="text-align: right;">0.7911799</td>
+<td style="text-align: left;">Previously Unburned</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">916436232</td>
+<td style="text-align: right;">316253920</td>
+<td style="text-align: right;">282010912</td>
+<td style="text-align: right;">1.4747313</td>
+<td style="text-align: left;">Previously Unburned</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
@@ -1043,19 +948,19 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Vegetation × burned area (ha):"</span>, veg_hist_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Vegetation × burned area (ha): 66.15328 </code></pre>
+<pre><code>Vegetation × burned area (ha): 0 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Vegetation × unburned area (ha):"</span>, veg_unburned_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Vegetation × unburned area (ha): 21.00272 </code></pre>
+<pre><code>Vegetation × unburned area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_veg_hist_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total calculated area (ha): 87.156 </code></pre>
+<pre><code>Total calculated area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, <span class="fu">as.numeric</span>(fire_boundary_area), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 87.156 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.76504 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_veg_hist_area <span class="sc">-</span> <span class="fu">as.numeric</span>(fire_boundary_area)) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1065,28 +970,50 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <h2 class="anchored" data-anchor-id="extract-rbr-pixel-values-by-vegetation-type-fire-history">Extract RBR pixel values by vegetation type &amp; fire history</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># burned pixels</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>burned_vals <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs,veg_hist <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                               dplyr<span class="sc">::</span><span class="fu">select</span>(MapUnit_Name, FIRE_NAME),</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">include_cols =</span> <span class="fu">c</span>(<span class="st">"MapUnit_Name"</span>,<span class="st">"FIRE_NAME"</span>),</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">bind_rows</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value))</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>burned_vals <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  rbr_to_vec_crs,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  veg_hist <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(MapUnit_Name, FIRE_NAME),</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">include_cols =</span> <span class="fu">c</span>(<span class="st">"MapUnit_Name"</span>,<span class="st">"FIRE_NAME"</span>),</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">progress =</span> <span class="cn">FALSE</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>) </span>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="co"># unburned pixels</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>unburn_vals <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(rbr_to_vec_crs, veg_unburned <span class="sc">%&gt;%</span> </span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>                               dplyr<span class="sc">::</span><span class="fu">select</span>(MapUnit_Name), <span class="at">include_cols =</span> <span class="st">"MapUnit_Name"</span>, <span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">bind_rows</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">mutate</span>(<span class="at">FIRE_NAME =</span> <span class="st">"Previously Unburned"</span>)</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="co"># bind safely even if there are zero features</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>burned_vals <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(burned_vals) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">MapUnit_Name =</span> <span class="fu">character</span>(), <span class="at">FIRE_NAME =</span> <span class="fu">character</span>(),</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="fu">numeric</span>(), <span class="at">coverage_fraction =</span> <span class="fu">numeric</span>())</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(burned_vals)</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="co"># combine &amp; factor</span></span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>all_vals <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(burned_vals, unburn_vals) <span class="sc">%&gt;%</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MapUnit_Name =</span> <span class="fu">factor</span>(MapUnit_Name, <span class="at">levels =</span> ordered_veg, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="fu">factor</span>(</span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>           FIRE_NAME,</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"WHISPERING PINES"</span>,<span class="st">"COVINGTON"</span>,<span class="st">"Previously Unburned"</span>),</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">ordered =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>burned_vals <span class="ot">&lt;-</span> burned_vals <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value))</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="co"># unburned pixels</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>unburn_vals <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>  rbr_to_vec_crs,</span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>  veg_unburned <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(MapUnit_Name),</span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">include_cols =</span> <span class="st">"MapUnit_Name"</span>,</span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">progress =</span> <span class="cn">FALSE</span></span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>unburn_vals <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(unburn_vals) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">MapUnit_Name =</span> <span class="fu">character</span>(),</span>
+<span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="fu">numeric</span>(), <span class="at">coverage_fraction =</span> <span class="fu">numeric</span>())</span>
+<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb42-31"><a href="#cb42-31" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(unburn_vals)</span>
+<span id="cb42-32"><a href="#cb42-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-33"><a href="#cb42-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a>unburn_vals <span class="ot">&lt;-</span> unburn_vals <span class="sc">%&gt;%</span></span>
+<span id="cb42-35"><a href="#cb42-35" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span></span>
+<span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">FIRE_NAME =</span> <span class="st">"Previously Unburned"</span>)</span>
+<span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-39"><a href="#cb42-39" aria-hidden="true" tabindex="-1"></a><span class="co"># combine &amp; factor</span></span>
+<span id="cb42-40"><a href="#cb42-40" aria-hidden="true" tabindex="-1"></a>all_vals <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(burned_vals, unburn_vals) <span class="sc">%&gt;%</span></span>
+<span id="cb42-41"><a href="#cb42-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MapUnit_Name =</span> <span class="fu">factor</span>(MapUnit_Name, <span class="at">levels =</span> ordered_veg, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb42-42"><a href="#cb42-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">FIRE_NAME =</span> <span class="fu">factor</span>(</span>
+<span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a>           FIRE_NAME,</span>
+<span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a>           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"WHISPERING PINES"</span>,<span class="st">"COVINGTON"</span>,<span class="st">"Previously Unburned"</span>),</span>
+<span id="cb42-45"><a href="#cb42-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">ordered =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="assertions-3" class="level4">
 <h4 class="anchored" data-anchor-id="assertions-3">Assertions</h4>
@@ -1107,8 +1034,8 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coverage_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-3.000e-08 7.023e-01 1.000e+00 8.106e-01 1.000e+00 1.000e+00 </code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.3896  0.9872  0.7064  1.0000  1.0000 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total effective pixels based on coverage fractions</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>total_effective_pixels <span class="ot">&lt;-</span> <span class="fu">sum</span>(all_pixels<span class="sc">$</span>coverage_fraction)</span>
@@ -1130,21 +1057,21 @@ Pixel Count Analysis:</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Total pixels from direct fire boundary extraction:"</span>, total_boundary_pixels, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Total pixels from direct fire boundary extraction: 3228 </code></pre>
+<pre><code>- Total pixels from direct fire boundary extraction: 1248 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Sum of coverage fractions from fire boundary:"</span>, total_boundary_coverage, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Sum of coverage fractions from fire boundary: 3228 </code></pre>
+<pre><code>- Sum of coverage fractions from fire boundary: 1232 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Total effective pixels from veg × fire history extraction:"</span>, total_effective_pixels, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Total effective pixels from veg × fire history extraction: 3228 </code></pre>
+<pre><code>- Total effective pixels from veg × fire history extraction: 1232 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Difference in effective pixels:"</span>, </span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage), </span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"("</span>, <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage, <span class="dv">2</span>), <span class="st">"%)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Difference in effective pixels: 5.613324e-07 ( 0 %)</code></pre>
+<pre><code>- Difference in effective pixels: 2.114346e-07 ( 0 %)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the difference is within tolerance (adjusted from 5% to 1% for stricter validation)</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage <span class="sc">&lt;</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

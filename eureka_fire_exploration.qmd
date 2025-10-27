@@ -1,10 +1,10 @@
 ---
-title: "Eureka Fire Exploration"
+title: "Black Rock Fire Exploration"
 format:
   html:
     code-fold: false
     
-date: "2025-06-11"
+date: "2025-10-27"
 ---
 
 ## Setup
@@ -37,7 +37,7 @@ veg_data <- st_read(dsn = "inputs/jotrgeodata.gpkg",layer = "JOTR_VegPolys",
                     quiet = TRUE)
 
 # Read fire severity (raster)
-rbr_rast <- raster("inputs/refined_rbr.tif")    
+rbr_rast <- raster("inputs/black-rock-severity-rbr-georef.tif")    
 ```
 
 ## Interactive map of fire location
@@ -139,6 +139,11 @@ ggplot() +
 ## Clip vegetation data to fire boundary and ummarize vegetation types within fire boundary
 
 ```{r veg_summary, message=FALSE, warning=FALSE}
+# Ensure CRS metadata match before intersection (sf requires exact equality)
+if (!identical(st_crs(veg_data), st_crs(fire_boundary))) {
+  st_crs(fire_boundary) <- st_crs(veg_data)
+}
+
 # Calculate area per vegetation type polygon
 clipped_veg <- st_intersection(veg_data, fire_boundary) %>%
   mutate(area_ha = as.numeric(st_area(.) / 10000))  # m² → ha
@@ -458,8 +463,13 @@ veg_hist_stats <- veg_hist %>%
 
 # build the “previously unburned” pieces
 burned_union  <- st_union(burned_overlap)
-veg_unburned  <- st_difference(merged_units_veg, burned_union) %>%
-  filter(!st_is_empty(.))
+
+# make geometries valid and perform difference on sfc, then rebuild sf to avoid tibble size issues
+mu_valid <- st_make_valid(merged_units_veg)
+burned_union_valid <- st_make_valid(burned_union)
+geom_diff <- st_difference(st_geometry(mu_valid), burned_union_valid)
+veg_unburned <- st_sf(st_drop_geometry(mu_valid), geometry = geom_diff, crs = st_crs(mu_valid)) %>%
+  filter(!st_is_empty(geometry))
 
 # compute stats on unburned (still sf)
 veg_unburned_stats <- veg_unburned %>%
@@ -471,7 +481,7 @@ veg_unburned_stats <- veg_unburned %>%
          FIRE_NAME = "Previously Unburned",YEAR_ = 0L)
 
 #  bind burned + unburned
-full_veg_history <- bind_rows(veg_hist_stats, veg_unburned_stats) %>%
+full_veg_history <- rbind(veg_hist_stats, veg_unburned_stats) %>%
   mutate(MapUnit_Name = factor(MapUnit_Name, levels = ordered_veg, ordered = TRUE),
          FIRE_NAME = factor(FIRE_NAME, levels = c("WHISPERING PINES","COVINGTON","Previously Unburned"), ordered = TRUE)) %>%
   arrange(MapUnit_Name, FIRE_NAME)%>%
@@ -508,19 +518,41 @@ stopifnot(abs(total_veg_hist_area - as.numeric(fire_boundary_area)) < 0.1)
 ```{r rbr_by_veg_history, message=FALSE, warning=FALSE}
 
 # burned pixels
-burned_vals <- exact_extract(rbr_to_vec_crs,veg_hist %>% 
-                               dplyr::select(MapUnit_Name, FIRE_NAME),
-                             include_cols = c("MapUnit_Name","FIRE_NAME"),
-                             progress = FALSE) %>% 
-                            bind_rows() %>% 
-                            filter(!is.na(value))
+burned_vals <- exact_extract(
+  rbr_to_vec_crs,
+  veg_hist %>% dplyr::select(MapUnit_Name, FIRE_NAME),
+  include_cols = c("MapUnit_Name","FIRE_NAME"),
+  progress = FALSE
+) 
+
+# bind safely even if there are zero features
+burned_vals <- if (length(burned_vals) == 0) {
+  tibble(MapUnit_Name = character(), FIRE_NAME = character(),
+         value = numeric(), coverage_fraction = numeric())
+} else {
+  dplyr::bind_rows(burned_vals)
+}
+
+burned_vals <- burned_vals %>% dplyr::filter(!is.na(value))
 
 # unburned pixels
-unburn_vals <- exact_extract(rbr_to_vec_crs, veg_unburned %>% 
-                               dplyr::select(MapUnit_Name), include_cols = "MapUnit_Name", progress = FALSE) %>%
-                              bind_rows() %>%
-                              filter(!is.na(value)) %>%
-                              mutate(FIRE_NAME = "Previously Unburned")
+unburn_vals <- exact_extract(
+  rbr_to_vec_crs,
+  veg_unburned %>% dplyr::select(MapUnit_Name),
+  include_cols = "MapUnit_Name",
+  progress = FALSE
+)
+
+unburn_vals <- if (length(unburn_vals) == 0) {
+  tibble(MapUnit_Name = character(),
+         value = numeric(), coverage_fraction = numeric())
+} else {
+  dplyr::bind_rows(unburn_vals)
+}
+
+unburn_vals <- unburn_vals %>%
+  dplyr::filter(!is.na(value)) %>%
+  dplyr::mutate(FIRE_NAME = "Previously Unburned")
 
 
 # combine & factor
