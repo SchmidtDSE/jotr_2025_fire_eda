@@ -69,7 +69,7 @@ colnames(rbr_df) <- c("x", "y", "RBR")
 ggplot(rbr_df, aes(x = x, y = y, fill = RBR)) +
   geom_raster() +
   scale_fill_viridis_c(option = "plasma", direction = -1,  na.value  = "transparent",
-    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +
+    name = "RBR value") +
   coord_equal() +
   labs(title = "Refined Relative Burn Ratio (RBR)", x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
@@ -121,7 +121,7 @@ ggplot() +
   geom_raster(data = rbr_to_vec_crs_df, aes(x = x, y = y, fill = RBR)) +
   geom_sf(data = fire_boundary, fill = NA, color = "black", linewidth = 0.8) +
   scale_fill_viridis_c(option = "plasma", direction = -1,  na.value  = "transparent",
-    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +
+    name = "RBR value") +
   coord_sf() +
   labs(title = "Burned Area Boundary (RBR > 0)", x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
@@ -334,7 +334,7 @@ fire_hist <- st_read("inputs/HistFires_JOTR_MOJA/FindExistingLocationsOutput.shp
 
 ```
 
-## Map historical fires and Eureka fire boundary
+## Map historical fires and Black Rock fire boundary
 
 ```{r historic_fire_map, message=FALSE, warning=FALSE}
 
@@ -342,7 +342,7 @@ fire_hist <- st_read("inputs/HistFires_JOTR_MOJA/FindExistingLocationsOutput.shp
 fire_years <- sort(unique(fire_hist$YEAR_))
 pal_fire <- setNames(viridis(n = length(fire_years), option = "turbo"), fire_years)
 
-# create a 100% buffer around the Eureka fire polygon
+# create a 100% buffer around the Black Rock fire polygon
 #    (buffer distance = max(width, height) of its bbox)
 fb <- fire_boundary %>%
   st_union() %>% # ensure single geometry
@@ -367,7 +367,7 @@ ggplot() +
   coord_sf(xlim = st_bbox(fb)[c("xmin", "xmax")], ylim = st_bbox(fb)[c("ymin", "ymax")],
            expand = FALSE) +
   scale_fill_manual(name   = "Fire Year", values = pal_fire, breaks = visible_yr) +
-  labs(title = "Historical Fires & Eureka Fire Boundary") +
+  labs(title = "Historical Fires & Black Rock Fire Boundary") +
   theme_void(base_size = 14) +
   theme(legend.position = c(0.85, 0.85),
         legend.background = element_rect(fill = "white", color = "grey80"),
@@ -380,7 +380,7 @@ ggplot() +
 
 ```{r fire_history_and_map, message=FALSE, warning=FALSE}
 
-#  Intersection of historic fires & Eureka boundary
+#  Intersection of historic fires & Black Rock boundary
 burned_overlap <- st_intersection(fire_hist, fire_boundary)
 
 # Burned stats by YEAR_ + FIRE_NAME (still sf)
@@ -628,7 +628,7 @@ ggplot(all_vals_ordered, aes(x= value, y = MapUnit_Name, fill = FIRE_NAME)) +
              size = .5, stroke = 0, shape = 20) +
   coord_flip() +
   scale_x_continuous(name = " Relative Burn Ratio (RBR)", 
-                     breaks = seq(-0.1, 0.6, by = 0.2), limits = c(-0.1, 0.55)) +
+                     breaks = scales::pretty_breaks(n = 6)) +
   scale_y_discrete(name = NULL, labels = function(x) str_wrap(x, 25)) +
   scale_fill_viridis_d(name = "Fire History", option  = "magma", begin = 0.2, 
                        end = 0.8, labels = legend_labs) +
