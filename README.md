@@ -71,7 +71,7 @@ When inside the container, to knit / render the `Quarto` document, run:
 
 ### Fire severity analysis
 
-This initial assessment explores the Relativized Burn Ratio (RBR) for the Black Rock Fire (Joshua Tree National Park, June 2025), including:
+This initial assessment explores the Relativized Burn Ratio (RBR) for the Black Rock Fire (Joshua Tree National Park, October 2025), including:
 
 - Fire burn severity across the entire fire perimeter
 - Vegetation types (area and percentage) burned
