@@ -33,7 +33,7 @@ library(RColorBrewer)
 ## Read data
 
 ```{r read_data, results='hide', message=FALSE, warning=FALSE, class.source = 'fold-show'}
-veg_data <- st_read(dsn = "inputs/jotrgeodata.gpkg",layer = "JOTR_VegPolys", 
+veg_data <- st_read(dsn = "../../shared_inputs/jotrgeodata.gpkg",layer = "JOTR_VegPolys", 
                     quiet = TRUE)
 
 # Read fire severity (raster)
@@ -329,7 +329,7 @@ ggplot(vals_df, aes(x = MapUnit_Name, y = value, fill = MapUnit_Name)) +
 
 ```{r read_hist_fire_data, results = "hide", message=FALSE, warning=FALSE,class.source = 'fold-show'}
 # Read the historic‐fires shapefile
-fire_hist <- st_read("inputs/HistFires_JOTR_MOJA/FindExistingLocationsOutput.shp") %>% # Reproject into EPSG:26911 (NAD83 / UTM zone 11N)
+fire_hist <- st_read("../../shared_inputs/HistFires_JOTR_MOJA/FindExistingLocationsOutput.shp") %>% # Reproject into EPSG:26911 (NAD83 / UTM zone 11N)
   st_transform(26911)
 
 ```

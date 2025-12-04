@@ -1,0 +1,12 @@
+---
+title: "Joshua Tree National Park Fire Analyses"
+---
+
+## Fire Analyses
+
+- [**Eureka Fire (May 2025)**](fires/eureka/eureka_fire_exploration.html) - Vegetation impact analysis
+- [**Black Rock Fire**](fires/black_rock/black_rock_fire_exploration.html) - Vegetation impact analysis
+
+---
+
+These analyses support NPS post-fire reporting requirements using burn severity data from the [Fire Severity Tool](https://storage.googleapis.com/fire-recovery-web/prod/fireSeverity.html).
