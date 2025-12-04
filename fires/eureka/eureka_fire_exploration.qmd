@@ -37,7 +37,7 @@ veg_data <- st_read(dsn = "../../shared_inputs/jotrgeodata.gpkg",layer = "JOTR_V
                     quiet = TRUE)
 
 # Read fire severity (raster)
-rbr_rast <- raster("inputs/black-rock-severity-rbr-dev.tif")    
+rbr_rast <- raster("inputs/refined_rbr.tif")    
 ```
 
 ## Interactive map of fire location
