@@ -1,10 +1,10 @@
 ---
-title: "Black Rock Fire Exploration"
+title: "Eureka Fire Exploration"
 format:
   html:
     code-fold: false
     
-date: "2025-10-27"
+date: "2025-06-11"
 ---
 
 ## Setup
@@ -69,7 +69,7 @@ colnames(rbr_df) <- c("x", "y", "RBR")
 ggplot(rbr_df, aes(x = x, y = y, fill = RBR)) +
   geom_raster() +
   scale_fill_viridis_c(option = "plasma", direction = -1,  na.value  = "transparent",
-    name = "RBR value") +
+    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +
   coord_equal() +
   labs(title = "Refined Relative Burn Ratio (RBR)", x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
@@ -121,7 +121,7 @@ ggplot() +
   geom_raster(data = rbr_to_vec_crs_df, aes(x = x, y = y, fill = RBR)) +
   geom_sf(data = fire_boundary, fill = NA, color = "black", linewidth = 0.8) +
   scale_fill_viridis_c(option = "plasma", direction = -1,  na.value  = "transparent",
-    name = "RBR value") +
+    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +
   coord_sf() +
   labs(title = "Burned Area Boundary (RBR > 0)", x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
@@ -139,11 +139,6 @@ ggplot() +
 ## Clip vegetation data to fire boundary and ummarize vegetation types within fire boundary
 
 ```{r veg_summary, message=FALSE, warning=FALSE}
-# Ensure CRS metadata match before intersection (sf requires exact equality)
-if (!identical(st_crs(veg_data), st_crs(fire_boundary))) {
-  st_crs(fire_boundary) <- st_crs(veg_data)
-}
-
 # Calculate area per vegetation type polygon
 clipped_veg <- st_intersection(veg_data, fire_boundary) %>%
   mutate(area_ha = as.numeric(st_area(.) / 10000))  # m² → ha
@@ -334,7 +329,7 @@ fire_hist <- st_read("../../shared_inputs/HistFires_JOTR_MOJA/FindExistingLocati
 
 ```
 
-## Map historical fires and Black Rock fire boundary
+## Map historical fires and Eureka fire boundary
 
 ```{r historic_fire_map, message=FALSE, warning=FALSE}
 
@@ -342,7 +337,7 @@ fire_hist <- st_read("../../shared_inputs/HistFires_JOTR_MOJA/FindExistingLocati
 fire_years <- sort(unique(fire_hist$YEAR_))
 pal_fire <- setNames(viridis(n = length(fire_years), option = "turbo"), fire_years)
 
-# create a 100% buffer around the Black Rock fire polygon
+# create a 100% buffer around the Eureka fire polygon
 #    (buffer distance = max(width, height) of its bbox)
 fb <- fire_boundary %>%
   st_union() %>% # ensure single geometry
@@ -367,7 +362,7 @@ ggplot() +
   coord_sf(xlim = st_bbox(fb)[c("xmin", "xmax")], ylim = st_bbox(fb)[c("ymin", "ymax")],
            expand = FALSE) +
   scale_fill_manual(name   = "Fire Year", values = pal_fire, breaks = visible_yr) +
-  labs(title = "Historical Fires & Black Rock Fire Boundary") +
+  labs(title = "Historical Fires & Eureka Fire Boundary") +
   theme_void(base_size = 14) +
   theme(legend.position = c(0.85, 0.85),
         legend.background = element_rect(fill = "white", color = "grey80"),
@@ -380,7 +375,7 @@ ggplot() +
 
 ```{r fire_history_and_map, message=FALSE, warning=FALSE}
 
-#  Intersection of historic fires & Black Rock boundary
+#  Intersection of historic fires & Eureka boundary
 burned_overlap <- st_intersection(fire_hist, fire_boundary)
 
 # Burned stats by YEAR_ + FIRE_NAME (still sf)
@@ -463,13 +458,8 @@ veg_hist_stats <- veg_hist %>%
 
 # build the “previously unburned” pieces
 burned_union  <- st_union(burned_overlap)
-
-# make geometries valid and perform difference on sfc, then rebuild sf to avoid tibble size issues
-mu_valid <- st_make_valid(merged_units_veg)
-burned_union_valid <- st_make_valid(burned_union)
-geom_diff <- st_difference(st_geometry(mu_valid), burned_union_valid)
-veg_unburned <- st_sf(st_drop_geometry(mu_valid), geometry = geom_diff, crs = st_crs(mu_valid)) %>%
-  filter(!st_is_empty(geometry))
+veg_unburned  <- st_difference(merged_units_veg, burned_union) %>%
+  filter(!st_is_empty(.))
 
 # compute stats on unburned (still sf)
 veg_unburned_stats <- veg_unburned %>%
@@ -481,7 +471,7 @@ veg_unburned_stats <- veg_unburned %>%
          FIRE_NAME = "Previously Unburned",YEAR_ = 0L)
 
 #  bind burned + unburned
-full_veg_history <- rbind(veg_hist_stats, veg_unburned_stats) %>%
+full_veg_history <- bind_rows(veg_hist_stats, veg_unburned_stats) %>%
   mutate(MapUnit_Name = factor(MapUnit_Name, levels = ordered_veg, ordered = TRUE),
          FIRE_NAME = factor(FIRE_NAME, levels = c("WHISPERING PINES","COVINGTON","Previously Unburned"), ordered = TRUE)) %>%
   arrange(MapUnit_Name, FIRE_NAME)%>%
@@ -518,41 +508,19 @@ stopifnot(abs(total_veg_hist_area - as.numeric(fire_boundary_area)) < 0.1)
 ```{r rbr_by_veg_history, message=FALSE, warning=FALSE}
 
 # burned pixels
-burned_vals <- exact_extract(
-  rbr_to_vec_crs,
-  veg_hist %>% dplyr::select(MapUnit_Name, FIRE_NAME),
-  include_cols = c("MapUnit_Name","FIRE_NAME"),
-  progress = FALSE
-) 
-
-# bind safely even if there are zero features
-burned_vals <- if (length(burned_vals) == 0) {
-  tibble(MapUnit_Name = character(), FIRE_NAME = character(),
-         value = numeric(), coverage_fraction = numeric())
-} else {
-  dplyr::bind_rows(burned_vals)
-}
-
-burned_vals <- burned_vals %>% dplyr::filter(!is.na(value))
+burned_vals <- exact_extract(rbr_to_vec_crs,veg_hist %>% 
+                               dplyr::select(MapUnit_Name, FIRE_NAME),
+                             include_cols = c("MapUnit_Name","FIRE_NAME"),
+                             progress = FALSE) %>% 
+                            bind_rows() %>% 
+                            filter(!is.na(value))
 
 # unburned pixels
-unburn_vals <- exact_extract(
-  rbr_to_vec_crs,
-  veg_unburned %>% dplyr::select(MapUnit_Name),
-  include_cols = "MapUnit_Name",
-  progress = FALSE
-)
-
-unburn_vals <- if (length(unburn_vals) == 0) {
-  tibble(MapUnit_Name = character(),
-         value = numeric(), coverage_fraction = numeric())
-} else {
-  dplyr::bind_rows(unburn_vals)
-}
-
-unburn_vals <- unburn_vals %>%
-  dplyr::filter(!is.na(value)) %>%
-  dplyr::mutate(FIRE_NAME = "Previously Unburned")
+unburn_vals <- exact_extract(rbr_to_vec_crs, veg_unburned %>% 
+                               dplyr::select(MapUnit_Name), include_cols = "MapUnit_Name", progress = FALSE) %>%
+                              bind_rows() %>%
+                              filter(!is.na(value)) %>%
+                              mutate(FIRE_NAME = "Previously Unburned")
 
 
 # combine & factor
@@ -628,7 +596,7 @@ ggplot(all_vals_ordered, aes(x= value, y = MapUnit_Name, fill = FIRE_NAME)) +
              size = .5, stroke = 0, shape = 20) +
   coord_flip() +
   scale_x_continuous(name = " Relative Burn Ratio (RBR)", 
-                     breaks = scales::pretty_breaks(n = 6)) +
+                     breaks = seq(-0.1, 0.6, by = 0.2), limits = c(-0.1, 0.55)) +
   scale_y_discrete(name = NULL, labels = function(x) str_wrap(x, 25)) +
   scale_fill_viridis_d(name = "Fire History", option  = "magma", begin = 0.2, 
                        end = 0.8, labels = legend_labs) +
