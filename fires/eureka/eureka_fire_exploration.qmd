@@ -121,7 +121,7 @@ ggplot() +
   geom_raster(data = rbr_to_vec_crs_df, aes(x = x, y = y, fill = RBR)) +
   geom_sf(data = fire_boundary, fill = NA, color = "black", linewidth = 0.8) +
   scale_fill_viridis_c(option = "plasma", direction = -1,  na.value  = "transparent",
-    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +8
+    name = "RBR value", limits  = c(-0.2, 0.5), breaks = seq(-0.2, 0.5, by = 0.1)) +
   coord_sf() +
   labs(title = "Burned Area Boundary (RBR > 0)", x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
