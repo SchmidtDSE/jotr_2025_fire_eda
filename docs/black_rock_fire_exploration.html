@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,9 +22,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,16 +64,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="fullcontent">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
@@ -179,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read fire severity (raster)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rbr_rast <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"inputs/black-rock-severity-rbr-georef.tif"</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rbr_rast <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">"inputs/black-rock-severity-rbr-dev.tif"</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="interactive-map-of-fire-location" class="level2">
@@ -199,8 +197,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"RBR value"</span>,</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">labFormat =</span> <span class="fu">labelFormat</span>(<span class="at">transform =</span> <span class="cf">function</span>(x) <span class="fu">sort</span>(x, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-6004d09cce04b042d5e3" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-6004d09cce04b042d5e3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.06669099999999,-116.396937],[34.05833099999999,-116.388598]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #5102A3 13.6477057044867%, #8707A6 27.331282632218%, #B42D8D 41.0148595599492%, #D5546E 54.6984364876804%, #EF7E50 68.3820134154117%, #FDAE32 82.0655903431429%, #F6E626 95.7491672708741%, #F0F921 "],"labels":["1,400,000,000","1,200,000,000","1,000,000,000","800,000,000","600,000,000","400,000,000","200,000,000"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0.1364770570448673,"p_n":0.9574916727087412},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05833099999999,34.06669099999999],"lng":[-116.396937,-116.388598]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-1d290247580339296f42" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1d290247580339296f42">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[34.06671614978153,-116.3969713222941],[34.05821784606569,-116.3885967577039]],null,null,{"tileSize":256,"zIndex":1,"minZoom":0,"opacity":0.6}]},{"method":"addLegend","args":[{"colors":["#0D0887 , #1F068F 2.62592467539084%, #6001A6 17.4414973664658%, #9814A0 32.2570700575409%, #C43E7F 47.0726427486158%, #E56A5D 61.8882154396909%, #FA9B3D 76.7037881307659%, #FBD424 91.5193608218409%, #F0F921 "],"labels":["0.20","0.15","0.10","0.05","0.00","-0.05","-0.10"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"numeric","title":"RBR value","extra":{"p_1":0.02625924675390843,"p_n":0.9151936082184087},"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[34.05821784606569,34.06671614978153],"lng":[-116.3969713222941,-116.3885967577039]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -266,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing layer `severity_to_fire_perimeter' to data source 
   `outputs/fire_perimeter/severity_to_fire_perimeter.shp' using driver `ESRI Shapefile'
-Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
+Writing 1 features with 0 fields and geometry type Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#convert reprojected raster to dataframe</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rbr_to_vec_crs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">rasterToPoints</span>(rbr_to_vec_crs))</span>
@@ -342,43 +340,43 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Total Burned Area</td>
-<td style="text-align: right;">30.9831750</td>
+<td style="text-align: right;">32.0688000</td>
 <td style="text-align: right;">100.000000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">11.1830564</td>
-<td style="text-align: right;">36.093965</td>
+<td style="text-align: right;">11.9007090</td>
+<td style="text-align: right;">37.109929</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">9.1615972</td>
-<td style="text-align: right;">29.569588</td>
+<td style="text-align: right;">9.2546088</td>
+<td style="text-align: right;">28.858606</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">California Juniper / Muller Oak - Blackbush Woodland Association</td>
-<td style="text-align: right;">4.9456749</td>
-<td style="text-align: right;">15.962453</td>
+<td style="text-align: right;">5.1774874</td>
+<td style="text-align: right;">16.144936</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">3.0750566</td>
-<td style="text-align: right;">9.924924</td>
+<td style="text-align: right;">3.2710045</td>
+<td style="text-align: right;">10.199959</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Catclaw Acacia - Desert Almond Shrubland Association</td>
-<td style="text-align: right;">1.1733306</td>
-<td style="text-align: right;">3.786993</td>
+<td style="text-align: right;">1.1950780</td>
+<td style="text-align: right;">3.726606</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Catclaw Acacia - (Sweetbush - Desert Lavender) Shrubland Association</td>
-<td style="text-align: right;">0.7411279</td>
-<td style="text-align: right;">2.392033</td>
+<td style="text-align: right;">0.7205647</td>
+<td style="text-align: right;">2.246934</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">0.7033314</td>
-<td style="text-align: right;">2.270043</td>
+<td style="text-align: right;">0.5493477</td>
+<td style="text-align: right;">1.713029</td>
 </tr>
 </tbody>
 </table>
@@ -391,13 +389,13 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fire_boundary_area <span class="ot">&lt;-</span> <span class="fu">st_area</span>(fire_boundary) <span class="sc">%&gt;%</span> units<span class="sc">::</span><span class="fu">set_units</span>(<span class="st">"ha"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, fire_boundary_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 30.98318 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After clipping vegetation</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>total_veg_area <span class="ot">&lt;-</span> <span class="fu">sum</span>(clipped_veg<span class="sc">$</span>area_ha)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Sum of vegetation areas within fire (ha):"</span>, total_veg_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sum of vegetation areas within fire (ha): 30.98318 </code></pre>
+<pre><code>Sum of vegetation areas within fire (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assert that these are approximately equal (within small tolerance for computational differences)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(<span class="fu">as.numeric</span>(fire_boundary_area) <span class="sc">-</span> total_veg_area) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -519,13 +517,13 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 54%">
-<col style="width: 6%">
+<col style="width: 53%">
 <col style="width: 8%">
+<col style="width: 7%">
 <col style="width: 7%">
 <col style="width: 8%">
 <col style="width: 7%">
-<col style="width: 6%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -541,39 +539,39 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">11155638</td>
-<td style="text-align: right;">1227024059</td>
-<td style="text-align: right;">597766272</td>
-<td style="text-align: right;">692287615</td>
-<td style="text-align: right;">370803168</td>
-<td style="text-align: right;">115.6254</td>
+<td style="text-align: right;">0.0127173</td>
+<td style="text-align: right;">0.2167029</td>
+<td style="text-align: right;">0.1330884</td>
+<td style="text-align: right;">0.1397481</td>
+<td style="text-align: right;">0.0475398</td>
+<td style="text-align: right;">120.25751</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">27700280</td>
-<td style="text-align: right;">1440397289</td>
-<td style="text-align: right;">704625408</td>
-<td style="text-align: right;">724844867</td>
-<td style="text-align: right;">262080880</td>
-<td style="text-align: right;">344.4857</td>
+<td style="text-align: right;">-0.0108986</td>
+<td style="text-align: right;">0.2145321</td>
+<td style="text-align: right;">0.1431335</td>
+<td style="text-align: right;">0.1513763</td>
+<td style="text-align: right;">0.0433880</td>
+<td style="text-align: right;">340.24298</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">2031647</td>
-<td style="text-align: right;">1194551736</td>
-<td style="text-align: right;">635691456</td>
-<td style="text-align: right;">715371653</td>
-<td style="text-align: right;">357885792</td>
-<td style="text-align: right;">420.4947</td>
+<td style="text-align: right;">-0.0211989</td>
+<td style="text-align: right;">0.2120343</td>
+<td style="text-align: right;">0.1292311</td>
+<td style="text-align: right;">0.1340581</td>
+<td style="text-align: right;">0.0445433</td>
+<td style="text-align: right;">437.52606</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">84357409</td>
-<td style="text-align: right;">741030643</td>
-<td style="text-align: right;">384515136</td>
-<td style="text-align: right;">385369524</td>
-<td style="text-align: right;">158484864</td>
-<td style="text-align: right;">26.4460</td>
+<td style="text-align: right;">-0.0030927</td>
+<td style="text-align: right;">0.1362095</td>
+<td style="text-align: right;">0.0560150</td>
+<td style="text-align: right;">0.0429873</td>
+<td style="text-align: right;">0.0335020</td>
+<td style="text-align: right;">20.19661</td>
 </tr>
 </tbody>
 </table>
@@ -727,13 +725,13 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 25%">
+<col style="width: 24%">
 <col style="width: 7%">
-<col style="width: 10%">
 <col style="width: 13%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -750,11 +748,11 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tr class="odd">
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2031647</td>
-<td style="text-align: right;">1440397289</td>
-<td style="text-align: right;">607268992</td>
-<td style="text-align: right;">329377120</td>
-<td style="text-align: right;">30.98318 [m^2]</td>
+<td style="text-align: right;">-0.0352312</td>
+<td style="text-align: right;">0.2167029</td>
+<td style="text-align: right;">0.1216565</td>
+<td style="text-align: right;">0.0518725</td>
+<td style="text-align: right;">32.0688 [m^2]</td>
 </tr>
 </tbody>
 </table>
@@ -773,15 +771,15 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Unburned area (ha):"</span>, unburned_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Unburned area (ha): 30.98318 </code></pre>
+<pre><code>Unburned area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_calculated_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total calculated area (ha): 30.98318 </code></pre>
+<pre><code>Total calculated area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, <span class="fu">as.numeric</span>(fire_boundary_area), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 30.98318 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check these are approximately equal</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_calculated_area <span class="sc">-</span> <span class="fu">as.numeric</span>(fire_boundary_area)) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -843,8 +841,8 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 47%">
-<col style="width: 6%">
 <col style="width: 7%">
+<col style="width: 6%">
 <col style="width: 6%">
 <col style="width: 6%">
 <col style="width: 7%">
@@ -866,71 +864,71 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Singleleaf Pinyon / Muller Oak Woodland Association</td>
-<td style="text-align: right;">11155638</td>
-<td style="text-align: right;">1227024059</td>
-<td style="text-align: right;">597766272</td>
-<td style="text-align: right;">370803168</td>
-<td style="text-align: right;">3.0750566</td>
+<td style="text-align: right;">0.0127173</td>
+<td style="text-align: right;">0.2167029</td>
+<td style="text-align: right;">0.1330884</td>
+<td style="text-align: right;">0.0475398</td>
+<td style="text-align: right;">3.2710045</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree - California Juniper / Nevada Ephedra Woodland Association</td>
-<td style="text-align: right;">27700280</td>
-<td style="text-align: right;">1440397289</td>
-<td style="text-align: right;">704625408</td>
-<td style="text-align: right;">262080880</td>
-<td style="text-align: right;">9.1615972</td>
+<td style="text-align: right;">-0.0108986</td>
+<td style="text-align: right;">0.2145321</td>
+<td style="text-align: right;">0.1431335</td>
+<td style="text-align: right;">0.0433880</td>
+<td style="text-align: right;">9.2546088</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">California Juniper / Blackbush Woodland Association</td>
-<td style="text-align: right;">2031647</td>
-<td style="text-align: right;">1194551736</td>
-<td style="text-align: right;">635691456</td>
-<td style="text-align: right;">357885792</td>
-<td style="text-align: right;">11.1830564</td>
+<td style="text-align: right;">-0.0211989</td>
+<td style="text-align: right;">0.2120343</td>
+<td style="text-align: right;">0.1292311</td>
+<td style="text-align: right;">0.0445433</td>
+<td style="text-align: right;">11.9007090</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joshua Tree / Blackbush Woodland Association</td>
-<td style="text-align: right;">84357409</td>
-<td style="text-align: right;">741030643</td>
-<td style="text-align: right;">384515136</td>
-<td style="text-align: right;">158484864</td>
-<td style="text-align: right;">0.7033314</td>
+<td style="text-align: right;">-0.0030927</td>
+<td style="text-align: right;">0.1362095</td>
+<td style="text-align: right;">0.0560150</td>
+<td style="text-align: right;">0.0335020</td>
+<td style="text-align: right;">0.5493477</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NA</td>
-<td style="text-align: right;">16318713</td>
-<td style="text-align: right;">987839232</td>
-<td style="text-align: right;">467070848</td>
-<td style="text-align: right;">314143072</td>
-<td style="text-align: right;">4.9456749</td>
+<td style="text-align: right;">-0.0376497</td>
+<td style="text-align: right;">0.2011072</td>
+<td style="text-align: right;">0.0886363</td>
+<td style="text-align: right;">0.0506590</td>
+<td style="text-align: right;">5.1774874</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NA</td>
-<td style="text-align: right;">27700280</td>
-<td style="text-align: right;">820388867</td>
-<td style="text-align: right;">373331872</td>
-<td style="text-align: right;">182063600</td>
-<td style="text-align: right;">0.7411279</td>
+<td style="text-align: right;">0.0003514</td>
+<td style="text-align: right;">0.1679851</td>
+<td style="text-align: right;">0.0483001</td>
+<td style="text-align: right;">0.0365249</td>
+<td style="text-align: right;">0.7205647</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NA</td>
-<td style="text-align: right;">19514650</td>
-<td style="text-align: right;">916436232</td>
-<td style="text-align: right;">473336800</td>
-<td style="text-align: right;">219917728</td>
-<td style="text-align: right;">1.1733306</td>
+<td style="text-align: right;">0.0006632</td>
+<td style="text-align: right;">0.1616565</td>
+<td style="text-align: right;">0.0660803</td>
+<td style="text-align: right;">0.0412919</td>
+<td style="text-align: right;">1.1950780</td>
 <td style="text-align: left;">Previously Unburned</td>
 <td style="text-align: right;">0</td>
 </tr>
@@ -952,15 +950,15 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Vegetation × unburned area (ha):"</span>, veg_unburned_area_sum, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Vegetation × unburned area (ha): 30.98318 </code></pre>
+<pre><code>Vegetation × unburned area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total calculated area (ha):"</span>, total_veg_hist_area, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total calculated area (ha): 30.98318 </code></pre>
+<pre><code>Total calculated area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Total fire boundary area (ha):"</span>, <span class="fu">as.numeric</span>(fire_boundary_area), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total fire boundary area (ha): 30.98318 </code></pre>
+<pre><code>Total fire boundary area (ha): 32.0688 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_veg_hist_area <span class="sc">-</span> <span class="fu">as.numeric</span>(fire_boundary_area)) <span class="sc">&lt;</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1034,8 +1032,8 @@ Writing 1 features with 0 fields and geometry type Multi Polygon.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coverage_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-4.600e-07 4.586e-01 9.999e-01 7.336e-01 1.000e+00 1.000e+00 </code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.4301  0.9989  0.7273  1.0000  1.0000 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total effective pixels based on coverage fractions</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>total_effective_pixels <span class="ot">&lt;-</span> <span class="fu">sum</span>(all_pixels<span class="sc">$</span>coverage_fraction)</span>
@@ -1057,21 +1055,21 @@ Pixel Count Analysis:</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Total pixels from direct fire boundary extraction:"</span>, total_boundary_pixels, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Total pixels from direct fire boundary extraction: 1185 </code></pre>
+<pre><code>- Total pixels from direct fire boundary extraction: 1223 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Sum of coverage fractions from fire boundary:"</span>, total_boundary_coverage, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Sum of coverage fractions from fire boundary: 1165 </code></pre>
+<pre><code>- Sum of coverage fractions from fire boundary: 1179 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Total effective pixels from veg × fire history extraction:"</span>, total_effective_pixels, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Total effective pixels from veg × fire history extraction: 1165 </code></pre>
+<pre><code>- Total effective pixels from veg × fire history extraction: 1179 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"- Difference in effective pixels:"</span>, </span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage), </span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"("</span>, <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage, <span class="dv">2</span>), <span class="st">"%)</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>- Difference in effective pixels: 1.338844e-07 ( 0 %)</code></pre>
+<pre><code>- Difference in effective pixels: 2.268062e-07 ( 0 %)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the difference is within tolerance (adjusted from 5% to 1% for stricter validation)</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(total_effective_pixels <span class="sc">-</span> total_boundary_coverage) <span class="sc">/</span> total_boundary_coverage <span class="sc">&lt;</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1129,242 +1127,239 @@ Pixel Count Analysis:</code></pre>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1372,161 +1367,185 @@ Pixel Count Analysis:</code></pre>
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 
