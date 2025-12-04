@@ -35,6 +35,10 @@ When inside the container, to knit / render a `Quarto` document, run:
 
 - `Cmd + Shift + P -> Quarto: Render Document`, with the desired `.qmd` file open.
 
+Or, more simply, from a terminal:
+
+- `$ quarto render`
+
 ---
 
 ## 📂 Repository Structure
