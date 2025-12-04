@@ -1,0 +1,205 @@
+---
+title: "JOTR 2025 Fire Summary Statistics"
+author: "Fire Analysis Team"
+date: today
+format: 
+  html:
+    toc: true
+    code-fold: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+## Overview
+
+This document provides summary statistics combining the vegetation burned analysis from both the **Eureka Fire** and **Black Rock Fire** in Joshua Tree National Park.
+
+```{r load-data}
+# Load vegetation burned summaries
+eureka_veg <- read_csv(file.path("fires/eureka/outputs/veg_burned_summary.csv"), 
+                        show_col_types = FALSE) |>
+  mutate(fire = "Eureka")
+
+black_rock_veg <- read_csv(file.path("fires/black_rock/outputs/veg_burned_summary.csv"),
+                            show_col_types = FALSE) |>
+  mutate(fire = "Black Rock")
+```
+
+## Total Area Burned
+
+```{r totals}
+# Extract totals
+eureka_total <- eureka_veg |> filter(MapUnit_Name == "Total Burned Area") |> pull(veg_ha)
+black_rock_total <- black_rock_veg |> filter(MapUnit_Name == "Total Burned Area") |> pull(veg_ha)
+combined_total <- eureka_total + black_rock_total
+
+tibble(
+  Fire = c("Eureka", "Black Rock", "**Combined Total**"),
+  Hectares_Burned = c(eureka_total, black_rock_total, combined_total),
+  Acres_Burned = c(eureka_total, black_rock_total, combined_total) * 2.471,
+  Percent_of_Total = c(eureka_total/combined_total * 100, 
+                        black_rock_total/combined_total * 100, 
+                        100)
+) |>
+  kable(digits = 1, format.args = list(big.mark = ","), 
+        col.names = c("Fire", "Hectares Burned", "Acres Burned", "Percent of Total")) |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+## Vegetation Types Burned
+
+### Combined Vegetation Summary
+
+```{r combined-veg}
+# Combine vegetation data (excluding totals)
+combined_veg <- bind_rows(eureka_veg, black_rock_veg) |>
+  filter(MapUnit_Name != "Total Burned Area") |>
+  group_by(MapUnit_Name) |>
+  summarise(
+    total_ha = sum(veg_ha),
+    fires_affected = paste(unique(fire), collapse = ", "),
+    .groups = "drop"
+  ) |>
+  arrange(desc(total_ha)) |>
+  mutate(
+    pct_combined = total_ha / combined_total * 100,
+    cumulative_pct = cumsum(pct_combined)
+  )
+
+combined_veg |>
+  select(
+    Vegetation_Type = MapUnit_Name,
+    Total_Ha = total_ha,
+    Pct_of_Combined = pct_combined,
+    Fires_Affected = fires_affected
+  ) |>
+  kable(digits = 2, col.names = c("Vegetation Type", "Total Ha", "% of Combined", "Fires Affected")) |>
+  kable_styling(bootstrap_options = c("striped", "hover")) |>
+  scroll_box(height = "400px")
+```
+
+### Side-by-Side Comparison
+
+```{r comparison-table}
+# Create comparison table
+all_veg_types <- union(
+  eureka_veg$MapUnit_Name,
+  black_rock_veg$MapUnit_Name
+) |> setdiff("Total Burned Area")
+
+comparison <- tibble(MapUnit_Name = all_veg_types) |>
+  left_join(
+    eureka_veg |> select(MapUnit_Name, eureka_ha = veg_ha, eureka_pct = pct_of_total),
+    by = "MapUnit_Name"
+  ) |>
+  left_join(
+    black_rock_veg |> select(MapUnit_Name, black_rock_ha = veg_ha, black_rock_pct = pct_of_total),
+    by = "MapUnit_Name"
+  ) |>
+  replace_na(list(eureka_ha = 0, eureka_pct = 0, black_rock_ha = 0, black_rock_pct = 0)) |>
+  mutate(total_ha = eureka_ha + black_rock_ha) |>
+  arrange(desc(total_ha))
+
+comparison |>
+  select(
+    Vegetation_Type = MapUnit_Name,
+    Eureka_ha = eureka_ha,
+    Eureka_pct = eureka_pct,
+    Black_Rock_ha = black_rock_ha,
+    Black_Rock_pct = black_rock_pct,
+    Combined_ha = total_ha
+  ) |>
+  kable(digits = 2, col.names = c("Vegetation Type", "Eureka (ha)", "Eureka (%)", 
+                                   "Black Rock (ha)", "Black Rock (%)", "Combined (ha)")) |>
+  kable_styling(bootstrap_options = c("striped", "hover")) |>
+  scroll_box(height = "400px")
+```
+
+## Visualizations
+
+### Area Burned by Fire
+
+```{r area-chart, fig.height=6, fig.width=8}
+combined_veg |>
+  ggplot(aes(x = reorder(MapUnit_Name, total_ha), y = total_ha, fill = fires_affected)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_manual(values = c("Eureka" = "#E69F00", "Black Rock" = "#56B4E9", 
+                                "Eureka, Black Rock" = "#009E73", "Black Rock, Eureka" = "#009E73")) +
+  labs(
+    title = "Total Hectares Burned by Vegetation Type",
+    subtitle = "Combined Eureka and Black Rock Fires",
+    x = NULL,
+    y = "Hectares",
+    fill = "Fire(s)"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+### Fire Comparison
+
+```{r fire-comparison, fig.height=6, fig.width=10}
+bind_rows(eureka_veg, black_rock_veg) |>
+  filter(MapUnit_Name != "Total Burned Area") |>
+  ggplot(aes(x = reorder(MapUnit_Name, veg_ha), y = veg_ha, fill = fire)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_fill_manual(values = c("Eureka" = "#E69F00", "Black Rock" = "#56B4E9")) +
+  labs(
+    title = "Vegetation Burned: Eureka vs Black Rock Fire",
+    x = NULL,
+    y = "Hectares",
+    fill = "Fire"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+## Key Statistics
+
+```{r key-stats}
+# Top vegetation types
+top_eureka <- eureka_veg |> 
+  filter(MapUnit_Name != "Total Burned Area") |> 
+  slice_max(veg_ha, n = 1)
+
+top_black_rock <- black_rock_veg |> 
+  filter(MapUnit_Name != "Total Burned Area") |> 
+  slice_max(veg_ha, n = 1)
+
+top_combined <- combined_veg |> slice_max(total_ha, n = 1)
+
+# Count unique veg types
+n_eureka_types <- eureka_veg |> filter(MapUnit_Name != "Total Burned Area") |> nrow()
+n_black_rock_types <- black_rock_veg |> filter(MapUnit_Name != "Total Burned Area") |> nrow()
+n_combined_types <- nrow(combined_veg)
+```
+
+### Summary
+
+- **Total Combined Area Burned**: `r round(combined_total, 1)` hectares (`r round(combined_total * 2.471, 1)` acres)
+- **Eureka Fire**: `r round(eureka_total, 1)` ha (`r round(eureka_total/combined_total*100, 1)`% of total)
+- **Black Rock Fire**: `r round(black_rock_total, 1)` ha (`r round(black_rock_total/combined_total*100, 1)`% of total)
+
+### Vegetation Types
+
+- **Total Vegetation Types Affected**: `r n_combined_types`
+  - Eureka Fire: `r n_eureka_types` types
+  - Black Rock Fire: `r n_black_rock_types` types
+  
+### Top Vegetation Types by Fire
+
+| Fire | Top Vegetation Type | Hectares | % of Fire |
+|------|---------------------|----------|-----------|
+| Eureka | `r top_eureka$MapUnit_Name` | `r round(top_eureka$veg_ha, 1)` | `r round(top_eureka$pct_of_total, 1)`% |
+| Black Rock | `r top_black_rock$MapUnit_Name` | `r round(top_black_rock$veg_ha, 1)` | `r round(top_black_rock$pct_of_total, 1)`% |
+| Combined | `r top_combined$MapUnit_Name` | `r round(top_combined$total_ha, 1)` | `r round(top_combined$pct_combined, 1)`% |
+
+---
+
+*Report generated on `r Sys.Date()`*

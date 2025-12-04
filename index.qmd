@@ -2,6 +2,10 @@
 title: "Joshua Tree National Park Fire Analyses"
 ---
 
+## Summary Report
+
+- [**Combined Fire Summary Statistics**](summary_report.html) - Total area burned and vegetation impacts across both fires
+
 ## Fire Analyses
 
 - [**Eureka Fire (May 2025)**](fires/eureka/eureka_fire_exploration.html) - Vegetation impact analysis

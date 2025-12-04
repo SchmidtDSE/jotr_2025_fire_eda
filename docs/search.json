@@ -81,14 +81,14 @@
     "href": "index.html",
     "title": "Joshua Tree National Park Fire Analyses",
     "section": "",
-    "text": "Eureka Fire (May 2025) - Vegetation impact analysis\nBlack Rock Fire - Vegetation impact analysis\n\n\nThese analyses support NPS post-fire reporting requirements using burn severity data from the Fire Severity Tool."
+    "text": "Combined Fire Summary Statistics - Total area burned and vegetation impacts across both fires"
   },
   {
     "objectID": "index.html#fire-analyses",
     "href": "index.html#fire-analyses",
     "title": "Joshua Tree National Park Fire Analyses",
-    "section": "",
-    "text": "Eureka Fire (May 2025) - Vegetation impact analysis\nBlack Rock Fire - Vegetation impact analysis\n\n\nThese analyses support NPS post-fire reporting requirements using burn severity data from the Fire Severity Tool."
+    "section": "Fire Analyses",
+    "text": "Fire Analyses\n\nEureka Fire (May 2025) - Vegetation impact analysis\nBlack Rock Fire (October 2025) - Vegetation impact analysis\n\n\nThese analyses support NPS post-fire reporting requirements using burn severity data from the Fire Severity Tool."
   },
   {
     "objectID": "fires/eureka/eureka_fire_exploration.html#read-data",
@@ -187,5 +187,54 @@
     "title": "Eureka Fire Exploration",
     "section": "Plot fire severity by vegetation type x fire history",
     "text": "Plot fire severity by vegetation type x fire history\n\n#remove 'association' from unit names\nordered_veg_clean &lt;- ordered_veg %&gt;%\n  str_remove_all(\"Association\") %&gt;%\n  str_squish()\n\nall_vals_ordered &lt;- all_vals %&gt;% \n  mutate(MapUnit_Name = str_squish(str_remove_all(MapUnit_Name, \"Association\")), MapUnit_Name = factor(MapUnit_Name, levels = ordered_veg_clean, ordered = TRUE))\n\n# build legend labels\nlegend_labs &lt;- c(\"WHISPERING PINES\" = sprintf(\"Whispering Pines (19 yrs)\"),\n                 \"COVINGTON\" = sprintf(\"Covington (30 yrs)\"),\n                 \"Previously Unburned\" = \"Previously Unburned (&gt;55 yrs)\")\n\nggplot(all_vals_ordered, aes(x= value, y = MapUnit_Name, fill = FIRE_NAME)) +\n  geom_density_ridges(scale = 1.0, rel_min_height  = 0.01, trim = FALSE, \n                      colour = \"grey30\", alpha = 0.8, size = 0.2) +\n  geom_jitter(aes(x = value, y = MapUnit_Name), height = 0.025, \n             size = .5, stroke = 0, shape = 20) +\n  coord_flip() +\n  scale_x_continuous(name = \" Relative Burn Ratio (RBR)\", \n                     breaks = seq(-0.1, 0.6, by = 0.2), limits = c(-0.1, 0.55)) +\n  scale_y_discrete(name = NULL, labels = function(x) str_wrap(x, 25)) +\n  scale_fill_viridis_d(name = \"Fire History\", option  = \"magma\", begin = 0.2, \n                       end = 0.8, labels = legend_labs) +\n  labs(title = \"Fire Severity Distribution by Vegetation Type × Fire History\") +\n  theme_minimal(base_size = 12) +\n  theme(axis.text.x  = element_text(angle = 45, hjust = 1),\n        axis.text.y = element_text(size = 10),\n        panel.grid.major = element_line(color = \"grey80\", linetype = \"dashed\"),\n        panel.grid.minor = element_blank(),\n        plot.title = element_text(face = \"bold\", hjust = 0.5),\n        legend.position = \"bottom\",\n        legend.background = element_rect(fill = \"white\", color = \"grey80\"))"
+  },
+  {
+    "objectID": "summary_report.html",
+    "href": "summary_report.html",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "",
+    "text": "This document provides summary statistics combining the vegetation burned analysis from both the Eureka Fire and Black Rock Fire (January 2025) in Joshua Tree National Park.\n\n\nCode\n# Load vegetation burned summaries\neureka_veg &lt;- read_csv(file.path(\"fires/eureka/outputs/veg_burned_summary.csv\"), \n                        show_col_types = FALSE) |&gt;\n  mutate(fire = \"Eureka\")\n\nblack_rock_veg &lt;- read_csv(file.path(\"fires/black_rock/outputs/veg_burned_summary.csv\"),\n                            show_col_types = FALSE) |&gt;\n  mutate(fire = \"Black Rock\")"
+  },
+  {
+    "objectID": "summary_report.html#overview",
+    "href": "summary_report.html#overview",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "",
+    "text": "This document provides summary statistics combining the vegetation burned analysis from both the Eureka Fire and Black Rock Fire (January 2025) in Joshua Tree National Park.\n\n\nCode\n# Load vegetation burned summaries\neureka_veg &lt;- read_csv(file.path(\"fires/eureka/outputs/veg_burned_summary.csv\"), \n                        show_col_types = FALSE) |&gt;\n  mutate(fire = \"Eureka\")\n\nblack_rock_veg &lt;- read_csv(file.path(\"fires/black_rock/outputs/veg_burned_summary.csv\"),\n                            show_col_types = FALSE) |&gt;\n  mutate(fire = \"Black Rock\")"
+  },
+  {
+    "objectID": "summary_report.html#total-area-burned",
+    "href": "summary_report.html#total-area-burned",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "Total Area Burned",
+    "text": "Total Area Burned\n\n\nCode\n# Extract totals\neureka_total &lt;- eureka_veg |&gt; filter(MapUnit_Name == \"Total Burned Area\") |&gt; pull(veg_ha)\nblack_rock_total &lt;- black_rock_veg |&gt; filter(MapUnit_Name == \"Total Burned Area\") |&gt; pull(veg_ha)\ncombined_total &lt;- eureka_total + black_rock_total\n\ntibble(\n  Fire = c(\"Eureka\", \"Black Rock\", \"**Combined Total**\"),\n  Hectares_Burned = c(eureka_total, black_rock_total, combined_total),\n  Acres_Burned = c(eureka_total, black_rock_total, combined_total) * 2.471,\n  Percent_of_Total = c(eureka_total/combined_total * 100, \n                        black_rock_total/combined_total * 100, \n                        100)\n) |&gt;\n  kable(digits = 1, format.args = list(big.mark = \",\"), \n        col.names = c(\"Fire\", \"Hectares Burned\", \"Acres Burned\", \"Percent of Total\")) |&gt;\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"))\n\n\n\n\n\nFire\nHectares Burned\nAcres Burned\nPercent of Total\n\n\n\n\nEureka\n87.2\n215.4\n73.1\n\n\nBlack Rock\n32.1\n79.2\n26.9\n\n\n**Combined Total**\n119.2\n294.6\n100.0"
+  },
+  {
+    "objectID": "summary_report.html#vegetation-types-burned",
+    "href": "summary_report.html#vegetation-types-burned",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "Vegetation Types Burned",
+    "text": "Vegetation Types Burned\n\nCombined Vegetation Summary\n\n\nCode\n# Combine vegetation data (excluding totals)\ncombined_veg &lt;- bind_rows(eureka_veg, black_rock_veg) |&gt;\n  filter(MapUnit_Name != \"Total Burned Area\") |&gt;\n  group_by(MapUnit_Name) |&gt;\n  summarise(\n    total_ha = sum(veg_ha),\n    fires_affected = paste(unique(fire), collapse = \", \"),\n    .groups = \"drop\"\n  ) |&gt;\n  arrange(desc(total_ha)) |&gt;\n  mutate(\n    pct_combined = total_ha / combined_total * 100,\n    cumulative_pct = cumsum(pct_combined)\n  )\n\ncombined_veg |&gt;\n  select(\n    Vegetation_Type = MapUnit_Name,\n    Total_Ha = total_ha,\n    Pct_of_Combined = pct_combined,\n    Fires_Affected = fires_affected\n  ) |&gt;\n  kable(digits = 2, col.names = c(\"Vegetation Type\", \"Total Ha\", \"% of Combined\", \"Fires Affected\")) |&gt;\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\")) |&gt;\n  scroll_box(height = \"400px\")\n\n\n\n\n\n\nVegetation Type\nTotal Ha\n% of Combined\nFires Affected\n\n\n\n\nSingleleaf Pinyon / Muller Oak Woodland Association\n51.72\n43.38\nEureka, Black Rock\n\n\nJoshua Tree - California Juniper / Nevada Ephedra Woodland Association\n28.57\n23.96\nEureka, Black Rock\n\n\nCalifornia Juniper / Blackbush Woodland Association\n17.02\n14.27\nEureka, Black Rock\n\n\nMuller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association\n9.57\n8.03\nEureka\n\n\nCalifornia Juniper / Muller Oak - Blackbush Woodland Association\n5.18\n4.34\nBlack Rock\n\n\nRed Brome - Mediterranean Grass Semi-Natural Herbaceous Stands\n3.10\n2.60\nEureka\n\n\nMojave Yucca - Blackbush Shrubland Association\n1.34\n1.13\nEureka\n\n\nCatclaw Acacia - Desert Almond Shrubland Association\n1.20\n1.00\nBlack Rock\n\n\nJoshua Tree / Blackbush Woodland Association\n0.82\n0.69\nEureka, Black Rock\n\n\nCatclaw Acacia - (Sweetbush - Desert Lavender) Shrubland Association\n0.72\n0.60\nBlack Rock\n\n\n\n\n\n\n\n\n\nSide-by-Side Comparison\n\n\nCode\n# Create comparison table\nall_veg_types &lt;- union(\n  eureka_veg$MapUnit_Name,\n  black_rock_veg$MapUnit_Name\n) |&gt; setdiff(\"Total Burned Area\")\n\ncomparison &lt;- tibble(MapUnit_Name = all_veg_types) |&gt;\n  left_join(\n    eureka_veg |&gt; select(MapUnit_Name, eureka_ha = veg_ha, eureka_pct = pct_of_total),\n    by = \"MapUnit_Name\"\n  ) |&gt;\n  left_join(\n    black_rock_veg |&gt; select(MapUnit_Name, black_rock_ha = veg_ha, black_rock_pct = pct_of_total),\n    by = \"MapUnit_Name\"\n  ) |&gt;\n  replace_na(list(eureka_ha = 0, eureka_pct = 0, black_rock_ha = 0, black_rock_pct = 0)) |&gt;\n  mutate(total_ha = eureka_ha + black_rock_ha) |&gt;\n  arrange(desc(total_ha))\n\ncomparison |&gt;\n  select(\n    Vegetation_Type = MapUnit_Name,\n    Eureka_ha = eureka_ha,\n    Eureka_pct = eureka_pct,\n    Black_Rock_ha = black_rock_ha,\n    Black_Rock_pct = black_rock_pct,\n    Combined_ha = total_ha\n  ) |&gt;\n  kable(digits = 2, col.names = c(\"Vegetation Type\", \"Eureka (ha)\", \"Eureka (%)\", \n                                   \"Black Rock (ha)\", \"Black Rock (%)\", \"Combined (ha)\")) |&gt;\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\")) |&gt;\n  scroll_box(height = \"400px\")\n\n\n\n\n\n\nVegetation Type\nEureka (ha)\nEureka (%)\nBlack Rock (ha)\nBlack Rock (%)\nCombined (ha)\n\n\n\n\nSingleleaf Pinyon / Muller Oak Woodland Association\n48.45\n55.59\n3.27\n10.20\n51.72\n\n\nJoshua Tree - California Juniper / Nevada Ephedra Woodland Association\n19.31\n22.16\n9.25\n28.86\n28.57\n\n\nCalifornia Juniper / Blackbush Woodland Association\n5.12\n5.87\n11.90\n37.11\n17.02\n\n\nMuller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association\n9.57\n10.98\n0.00\n0.00\n9.57\n\n\nCalifornia Juniper / Muller Oak - Blackbush Woodland Association\n0.00\n0.00\n5.18\n16.14\n5.18\n\n\nRed Brome - Mediterranean Grass Semi-Natural Herbaceous Stands\n3.10\n3.55\n0.00\n0.00\n3.10\n\n\nMojave Yucca - Blackbush Shrubland Association\n1.34\n1.54\n0.00\n0.00\n1.34\n\n\nCatclaw Acacia - Desert Almond Shrubland Association\n0.00\n0.00\n1.20\n3.73\n1.20\n\n\nJoshua Tree / Blackbush Woodland Association\n0.27\n0.31\n0.55\n1.71\n0.82\n\n\nCatclaw Acacia - (Sweetbush - Desert Lavender) Shrubland Association\n0.00\n0.00\n0.72\n2.25\n0.72"
+  },
+  {
+    "objectID": "summary_report.html#visualizations",
+    "href": "summary_report.html#visualizations",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "Visualizations",
+    "text": "Visualizations\n\nArea Burned by Fire\n\n\nCode\ncombined_veg |&gt;\n  ggplot(aes(x = reorder(MapUnit_Name, total_ha), y = total_ha, fill = fires_affected)) +\n  geom_col() +\n  coord_flip() +\n  scale_fill_manual(values = c(\"Eureka\" = \"#E69F00\", \"Black Rock\" = \"#56B4E9\", \n                                \"Eureka, Black Rock\" = \"#009E73\", \"Black Rock, Eureka\" = \"#009E73\")) +\n  labs(\n    title = \"Total Hectares Burned by Vegetation Type\",\n    subtitle = \"Combined Eureka and Black Rock Fires\",\n    x = NULL,\n    y = \"Hectares\",\n    fill = \"Fire(s)\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\n\nFire Comparison\n\n\nCode\nbind_rows(eureka_veg, black_rock_veg) |&gt;\n  filter(MapUnit_Name != \"Total Burned Area\") |&gt;\n  ggplot(aes(x = reorder(MapUnit_Name, veg_ha), y = veg_ha, fill = fire)) +\n  geom_col(position = \"dodge\") +\n  coord_flip() +\n  scale_fill_manual(values = c(\"Eureka\" = \"#E69F00\", \"Black Rock\" = \"#56B4E9\")) +\n  labs(\n    title = \"Vegetation Burned: Eureka vs Black Rock Fire\",\n    x = NULL,\n    y = \"Hectares\",\n    fill = \"Fire\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "summary_report.html#key-statistics",
+    "href": "summary_report.html#key-statistics",
+    "title": "JOTR 2025 Fire Summary Statistics",
+    "section": "Key Statistics",
+    "text": "Key Statistics\n\n\nCode\n# Top vegetation types\ntop_eureka &lt;- eureka_veg |&gt; \n  filter(MapUnit_Name != \"Total Burned Area\") |&gt; \n  slice_max(veg_ha, n = 1)\n\ntop_black_rock &lt;- black_rock_veg |&gt; \n  filter(MapUnit_Name != \"Total Burned Area\") |&gt; \n  slice_max(veg_ha, n = 1)\n\ntop_combined &lt;- combined_veg |&gt; slice_max(total_ha, n = 1)\n\n# Count unique veg types\nn_eureka_types &lt;- eureka_veg |&gt; filter(MapUnit_Name != \"Total Burned Area\") |&gt; nrow()\nn_black_rock_types &lt;- black_rock_veg |&gt; filter(MapUnit_Name != \"Total Burned Area\") |&gt; nrow()\nn_combined_types &lt;- nrow(combined_veg)\n\n\n\nSummary\n\nTotal Combined Area Burned: 119.2 hectares (294.6 acres)\nEureka Fire: 87.2 ha (73.1% of total)\nBlack Rock Fire: 32.1 ha (26.9% of total)\n\n\n\nVegetation Types\n\nTotal Vegetation Types Affected: 10\n\nEureka Fire: 7 types\nBlack Rock Fire: 7 types\n\n\n\n\nTop Vegetation Types by Fire\n\n\n\n\n\n\n\n\n\nFire\nTop Vegetation Type\nHectares\n% of Fire\n\n\n\n\nEureka\nSingleleaf Pinyon / Muller Oak Woodland Association\n48.4\n55.6%\n\n\nBlack Rock\nCalifornia Juniper / Blackbush Woodland Association\n11.9\n37.1%\n\n\nCombined\nSingleleaf Pinyon / Muller Oak Woodland Association\n51.7\n43.4%\n\n\n\n\nReport generated on 2025-12-04"
+  },
+  {
+    "objectID": "index.html#summary-report",
+    "href": "index.html#summary-report",
+    "title": "Joshua Tree National Park Fire Analyses",
+    "section": "",
+    "text": "Combined Fire Summary Statistics - Total area burned and vegetation impacts across both fires"
   }
 ]
