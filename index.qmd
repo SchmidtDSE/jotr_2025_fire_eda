@@ -2,15 +2,11 @@
 title: "Joshua Tree National Park Fire Analyses"
 ---
 
-This site contains exploratory analyses of fire impacts within Joshua Tree National Park (JOTR).
-
 ## Fire Analyses
 
-- [**Eureka Fire (2025)**](fires/eureka/eureka_fire_exploration.qmd) - Analysis of vegetation impacts after the Eureka Fire
-- [**Black Rock Fire (2025)**](fires/black_rock/black_rock_fire_exploration.qmd) - Analysis of the Black Rock Fire
+- [**Eureka Fire (May 2025)**](fires/eureka/eureka_fire_exploration.html) - Vegetation impact analysis
+- [**Black Rock Fire**](fires/black_rock/black_rock_fire_exploration.html) - Vegetation impact analysis
 
-## About
+---
 
-These analyses were performed to support the post-fire reporting requirements of the National Park Service (NPS) within Joshua Tree National Park, with an emphasis on timeliness and accuracy.
-
-Analyses help characterize burn severity, vegetation types within burned areas, and fire history to support validation of the [Fire Severity Tool](https://storage.googleapis.com/fire-recovery-web/prod/fireSeverity.html) from the [Schmidt Center for Data Science and Environment (DSE)](https://dse.berkeley.edu/).
+These analyses support NPS post-fire reporting requirements using burn severity data from the [Fire Severity Tool](https://storage.googleapis.com/fire-recovery-web/prod/fireSeverity.html).

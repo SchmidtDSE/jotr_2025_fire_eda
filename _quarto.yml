@@ -2,17 +2,6 @@ project:
   type: website
   output-dir: docs
 
-website:
-  title: "JOTR Fire Analyses"
-  navbar:
-    left:
-      - text: "Home"
-        href: index.qmd
-      - text: "Eureka Fire"
-        href: fires/eureka/eureka_fire_exploration.qmd
-      - text: "Black Rock Fire"
-        href: fires/black_rock/black_rock_fire_exploration.qmd
-
 format:
   html:
     theme: cosmo
