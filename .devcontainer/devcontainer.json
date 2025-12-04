@@ -11,5 +11,9 @@
         "ms-vscode.live-server"
       ]
     }
+  },
+  "forwardPorts": [8787],
+  "rstudioServer": {
+    "port": 8787
   }
 }

@@ -1,4 +1,4 @@
-setwd("~/.../validation_EurekaFire") #adapt path
+setwd("~/.../validation_BlackRockFire") # adapt path
 
 library(tidyverse)
 library(sf)
@@ -49,4 +49,4 @@ p_postfire = ggplot() + theme_bw() + ggtitle('NDVI Post-Fire (June 9, 2025)') +
 
 plot = cowplot::plot_grid(p_prefire, p_postfire, p_diff, ncol = 3)
 plot
-ggsave('outputs/NDVI_EurekaFire.png')
+ggsave('outputs/NDVI_BlackRockFire.png')

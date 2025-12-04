@@ -1,4 +1,4 @@
-# Install only packages used in eureka_fire_exploration.qmd
+# Install only packages used in black_rock_fire_exploration.qmd
 packages <- c(
   "tidyverse",     # includes readr
   "sf",

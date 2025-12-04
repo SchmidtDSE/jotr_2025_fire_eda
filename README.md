@@ -1,13 +1,15 @@
 # Joshua Tree National Park Fire Analyses
 
-**The up-to-date version of these analyses can be viewed [here on GitHub Pages](https://schmidtdse.github.io/eureka_fire_eda/)!**
+**The up-to-date version of these analyses can be viewed [here on GitHub Pages](https://schmidtdse.github.io/jotr_2025_fire_eda/)!**
 
 This repository contains input data and outputs for fire impact assessments within Joshua Tree National Park (JOTR). These analyses support the post-fire reporting requirements of the National Park Service (NPS), with an emphasis on timeliness and accuracy.
 
 ## 🔥 Fire Analyses
 
-- **[Eureka Fire](fires/eureka/eureka_fire_exploration.qmd)** - Analysis of vegetation impacts after the [Eureka Fire](https://www.fire.ca.gov/incidents/2025/5/30/eureka-fire) (May 2025)
-- **[Black Rock Fire](fires/black_rock/black_rock_fire_exploration.qmd)** - Analysis of the Black Rock Fire
+| Fire | Date | Historical Overlap | Analysis |
+|------|------|-------------------|----------|
+| [Eureka Fire](fires/eureka/eureka_fire_exploration.qmd) | May 2025 | Yes (includes veg × fire history analysis) | [View HTML](https://schmidtdse.github.io/jotr_2025_fire_eda/fires/eureka/eureka_fire_exploration.html) |
+| [Black Rock Fire](fires/black_rock/black_rock_fire_exploration.qmd) | October 2025 | No (100% previously unburned) | [View HTML](https://schmidtdse.github.io/jotr_2025_fire_eda/fires/black_rock/black_rock_fire_exploration.html) |
 
 ---
 
@@ -15,7 +17,7 @@ This repository contains input data and outputs for fire impact assessments with
 
 #### `renv`
 
-This analysis uses `renv` for package management using R version `4.4.3`. This can be installed using `renv::refresh()` when inside of the working directory in RStudio. 
+This analysis uses `renv` for package management using R version `4.4.3`. This can be installed using `renv::refresh()` when inside of the working directory in RStudio.
 
 #### VSCode Dev Container
 
@@ -38,23 +40,30 @@ When inside the container, to knit / render a `Quarto` document, run:
 ## 📂 Repository Structure
 
 ```plaintext
-📂 eureka_fire_eda/
+📂 jotr_2025_fire_eda/
 ├── fires/
 │   ├── eureka/
-│   │   ├── eureka_fire_exploration.qmd       Main Eureka fire analysis notebook
+│   │   ├── eureka_fire_exploration.qmd       Main analysis notebook
 │   │   ├── NDVI_planetscope.R                Pre/post-burn NDVI script
 │   │   ├── inputs/
-│   │   │   └── refined_rbr.tif               Eureka fire RBR raster
+│   │   │   └── refined_rbr.tif               RBR raster from Fire Severity Tool
 │   │   └── outputs/
-│   │       ├── fire_perimeter/               Extracted fire boundary
-│   │       ├── NDVI_EurekaFire.png           NDVI visualization
-│   │       └── *.csv                         Summary statistics
+│   │       ├── fire_perimeter/               Extracted fire boundary shapefile
+│   │       ├── veg_burned_summary.csv        Vegetation area by type
+│   │       ├── severity_veg_summary.csv      RBR stats by vegetation type
+│   │       ├── severity_fire_history.csv     RBR stats by historical fire
+│   │       ├── severity_veg_firehist.csv     RBR stats by veg × fire history
+│   │       └── NDVI_EurekaFire.png           NDVI visualization
 │   │
 │   └── black_rock/
-│       ├── black_rock_fire_exploration.qmd   Black Rock fire analysis notebook
+│       ├── black_rock_fire_exploration.qmd   Main analysis notebook
 │       ├── inputs/
-│       │   └── black-rock-severity-rbr-dev.tif
+│       │   └── refined_rbr.tif               RBR raster from Fire Severity Tool
 │       └── outputs/
+│           ├── fire_perimeter/               Extracted fire boundary shapefile
+│           ├── veg_burned_summary.csv        Vegetation area by type
+│           ├── severity_veg_summary.csv      RBR stats by vegetation type
+│           └── severity_fire_history.csv     RBR stats by historical fire
 │
 ├── shared_inputs/
 │   ├── jotrgeodata.gpkg                      Vegetation polygons (JOTR_VegPolys layer)
