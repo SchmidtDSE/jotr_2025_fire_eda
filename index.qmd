@@ -5,7 +5,7 @@ title: "Joshua Tree National Park Fire Analyses"
 ## Fire Analyses
 
 - [**Eureka Fire (May 2025)**](fires/eureka/eureka_fire_exploration.html) - Vegetation impact analysis
-- [**Black Rock Fire**](fires/black_rock/black_rock_fire_exploration.html) - Vegetation impact analysis
+- [**Black Rock Fire (October 2025)**](fires/black_rock/black_rock_fire_exploration.html) - Vegetation impact analysis
 
 ---
 
