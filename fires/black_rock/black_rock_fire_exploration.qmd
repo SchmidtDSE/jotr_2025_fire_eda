@@ -268,12 +268,12 @@ clipped_stats <- merged_units_veg %>%
 
 
 #  Reorder to your preferred sequence
-ordered_veg <- c("Singleleaf Pinyon / Muller Oak Woodland Association",
+ordered_veg <- c("California Juniper / Blackbush Woodland Association",
                  "Joshua Tree - California Juniper / Nevada Ephedra Woodland Association",
-                 "Muller Oak - California Buckwheat - Narrowleaf Goldenbush Shrubland Association",
-                 "California Juniper / Blackbush Woodland Association",
-                 "Red Brome - Mediterranean Grass Semi-Natural Herbaceous Stands",
-                 "Mojave Yucca - Blackbush Shrubland Association",
+                 "California Juniper / Muller Oak - Blackbush Woodland Association",
+                 "Singleleaf Pinyon / Muller Oak Woodland Association",
+                 "Catclaw Acacia - Desert Almond Shrubland Association",
+                 "Catclaw Acacia - (Sweetbush - Desert Lavender) Shrubland Association",
                  "Joshua Tree / Blackbush Woodland Association")
 
 severity_summary <- clipped_stats %>%
